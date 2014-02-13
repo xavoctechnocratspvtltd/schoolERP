@@ -1,0 +1,9 @@
+<div id="<?$_name?>">
+	<form method='POST' action='' enctype="multipart/form-data">
+		<input type='hidden' name='restore_form_submitted' value='1'/>
+		<input type='file' name='backup_file'/>
+		<label for='keep_existing'>Keep Existing Files Saved <input type='checkbox' name='keep_existing' value='1' checked/></label><br/>
+		<label for='keep_password'>Don't Restore Password <input type='checkbox' name='keep_password' value='1' checked/></label><br/>
+		<input type='submit' value='Restore'/>
+	</form>
+</div>

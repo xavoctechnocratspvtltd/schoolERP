@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dashboard - Epan Admin</title>
+  
+    <link rel="stylesheet" type="text/css" href="<?template?>css/jquery-ui.css<?/?>" />
+    <link rel="stylesheet" type="text/css" href="<?template?>css/atk-main.css<?/?>" />
+    <link rel="stylesheet" type="text/css" href="<?template?>css/atk-custom.css<?/?>" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="<?template?>admintemplate/css/bootstrap.css<?/template?>" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="<?template?>admintemplate/css/sb-admin.css<?/template?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?template?>admintemplate/font-awesome/css/font-awesome.min.css<?/template?>">
+    <!-- Page Specific CSS -->
+    <!--link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css"-->
+    <script src="<?template?>admintemplate/js/jquery-1.10.2.js<?/template?>"></script>
+    <?$js_include?>
+    <!--[if IE 8]>
+      <link rel="stylesheet" type="text/css" href="<?template?>css/ie8.css<?/?>"/>
+      <script type="text/javascript" src="<?template?>css/ie8.js<?/?>"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(function(){
+        <?$document_ready?>
+      });
+    </script>
+    <style type="text/css">
+    .navbar-fixed-top, .navbar-fixed-bottom{
+      z-index: 100;
+    }
+      </style>
+  </head>
+
+  <body>
+
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <?$menu?>
+      <div id="page-wrapper">
+        <?$Content?>
+      </div><!-- /#page-wrapper -->
+    <div id="atk-growl-holder" class="atk-growl"></div>
+    </div><!-- /#wrapper -->
+
+    <!-- JavaScript -->
+    <script src="<?template?>admintemplate/js/bootstrap.js<?/template?>"></script>
+
+    <!-- Page Specific Plugins -->
+    <!--script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script-->
+
+      <!--script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script-->
+      <!--script src="<?template?>admintemplate/js/morris/chart-data-morris.js<?/template?>"></script-->
+
+    <script src="<?template?>admintemplate/js/tablesorter/jquery.tablesorter.js<?/template?>"></script>
+    <script src="<?template?>admintemplate/js/tablesorter/tables.js<?/template?>"></script>
+    <script type="text/javascript">
+      var bootstrapButton = $.fn.button.noConflict() // return $.fn.button to previously assigned value
+    $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Bootstrap functionality
+    </script>
+  </body>
+</html>

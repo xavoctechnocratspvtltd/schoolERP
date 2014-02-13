@@ -1,0 +1,118 @@
+<div id="<?$_name?>" class=' epan-frontend-editing-toolbar <?$class?>'>
+	<div class='row'>
+		<div class='col-md-7'>
+			<div class = 'components-section'>
+				<div class='tools-panel content'>
+					<?$tools?>
+				</div>
+			</div>
+			<div id='epan-frontend-editing-toolbar-breadcrumb'>
+				This is breadcrumb : An Easy way to select your elements ...
+			</div>
+		</div>
+		<div class='actions col-md-5'>
+			<div class='row'>
+				<div class=' col-md-12'>
+					<div class='btn-group'>
+						<div id='dashboard-btn' class='btn btn-danger dashboard'>
+							<i class='glyphicon glyphicon-home'></i> Dashboard
+						</div>
+						<div id='epan-option-button' class="btn btn-default"><i class='glyphicon glyphicon-chevron-down'></i> Properties</div>
+						<div id='page-property-btn' class='btn btn-info remove'>
+							<i class='glyphicon glyphicon-cog'></i> Page Properties
+						</div>
+						<div class="btn-group dropup">
+							<button id='epan-save-btn' type="button" class="btn btn-success save">
+								<i class="glyphicon glyphicon-floppy-save"></i> Save</button>
+							<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+							<span class="sr-only">Toggle Dropdown</span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="?page=logout">Logout</a></li>
+								<li class="divider"></li>
+								<li><a href="#" id='save-as-snapshot'>Save: Take Snapshot</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class='col-md-3'>
+					<label><input type='checkbox' id='epan-component-border'> Show Border</label>
+				</div>
+				<div class='col-md-3'>
+					<label><input type='checkbox' id='epan-component-extra-padding'> Easy Drop</label>
+				</div>
+				<div class='col-md-3'>
+					Tool Bar Position
+					<div class="btn-group">
+						<button id='epan-toolbar-position-top' type="button" class="btn btn-default btn-xs">Top</button>
+						<button id='epan-toolbar-position-bottom' type="button" class="btn btn-default btn-xs">Bottom</button>
+					</div>
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+					Front Apps <br/>
+					<button id='front-app-launcher' class='btn btn-default btn-xs'>
+						Launcher
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id='epan-quick-component-options' class="col-md-12">
+	<div class='option-drag-handler'>
+		<i class='glyphicon glyphicon-move'></i>
+		Options
+		<i id='epan-quick-component-options-close' class='glyphicon glyphicon-remove pull-right' style='margin-right:20px'></i>
+	</div>
+	<div id='common-options-div'>
+		<?$common_css_options?>
+	</div>
+</div>
+<script type="text/javascript">
+$('#epan-component-border').click(function(event) {
+	if($('#epan-component-border:checked').size() > 0){
+		$('.epan-component').addClass('component-outline');
+	}else{
+		$('.epan-component').removeClass('component-outline');
+	}
+});
+
+$('#epan-toolbar-position-top').click(function(event) {
+	$('.epan-frontend-editing-toolbar').css('top',0);
+	$('.epan-frontend-editing-toolbar').css('bottom','auto');
+});
+
+$('#epan-toolbar-position-bottom').click(function(event) {
+	$('.epan-frontend-editing-toolbar').css('top','auto');
+	$('.epan-frontend-editing-toolbar').css('bottom',0);
+});
+
+$('#epan-component-extra-padding').click(function(event) {
+	if($('#epan-component-extra-padding:checked').size() > 0){
+		$('.epan-sortable-component').addClass('epan-sortable-extra-padding');
+	}else{
+		$('.epan-sortable-component').removeClass('epan-sortable-extra-padding');
+	}
+});
+
+
+
+
+$('#epan-quick-component-options').draggable({
+	handle: '.option-drag-handler',
+	// containment: $('.top-page') //TODO to be done
+});
+
+$('#save-as-snapshot').click(function(event) {
+	save_and_take_snapshot =true;
+	$('#epan-save-btn').click();
+	save_and_take_snapshot =false;
+});
+
+$('#front-app-launcher').click(function(event) {
+	$('body').univ().frameURL('Front Component','?page=owner_frontapplauncher');
+});
+</script>

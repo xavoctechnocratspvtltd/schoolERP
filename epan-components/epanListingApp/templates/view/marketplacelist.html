@@ -1,0 +1,18 @@
+<div id="<?$_name?>" class='clearfix'>
+	<?rows?>
+		<?row?>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pull-left" style="width:45%">
+				<div class="panel panel-success">
+					  <div class="panel-heading">
+							<h3 class="panel-title"><?$name?></h3>
+					  </div>
+					  <div class="btn btn-info" onclick="$('body').univ().frameURL('Details ','/?page=epanListingApp_page_componentDetails\x26epan=web\x26subpage=market-place\x26component_market_place_id=<?$component_id?>',{'width':'65%'})">More</div>
+					  <div class="panel-body" align='justify'>
+							<?$description?>
+					  </div>
+				</div>
+			</div>
+		<?/row?>
+	<?/rows?>
+	<?$paginator?>
+</div>

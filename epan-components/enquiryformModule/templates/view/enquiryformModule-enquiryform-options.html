@@ -1,0 +1,66 @@
+<div id='<?$_name?>' class='epan-component-options' component_type="<?$component_type?>">
+	<h3><?$component_type?></h3>
+	<div class="row">
+		<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+			<input type='text' id='epan-enquiryform-option-receipent' style='width:100%'/>
+		</div>
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			Receipent
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#epan-component-enquiryform-fields-options">Form Fields
+			</a>
+			</h3>
+		</div>
+		<div id="epan-component-enquiryform-fields-options" class="panel-collapse collapse in">
+			<div class="panel-body">
+				<ul id='epan-component-option-form-elements'>
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+var epan_form_option_item_moving = undefined;
+$('#epan-enquiryform-option-receipent').keyup(function(event){
+	$(current_selected_component).attr('email_to',$(this).val());
+	var emailRegexStr = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+	var isvalid = emailRegexStr.test($(this).val());
+	if(isvalid){
+		$(current_selected_component).css('outline','');
+	}else{
+		$(current_selected_component).css('outline','2px solid red');
+	}
+});
+$('#epan-component-option-form-elements').sortable({
+	stop : function(event,ui) {
+		$('#'+$(current_selected_component).attr('id') +' .epan-form-fields-rows .row:nth-child('+(epan_form_option_item_moving+1)+')')
+				.insertBefore('#'+$(current_selected_component).attr('id') + ' .epan-form-fields-rows .row:nth-child('+ (parseInt(ui.item.index())+1)+')');
+		console.log('moving from ' +
+					(epan_form_option_item_moving+1) +
+					' to ' +
+					(parseInt(ui.item.index())+1));
+	},
+	start: function(event,ui){
+		epan_form_option_item_moving = ui.item.index();
+	}
+});
+var <?$component_type?>_options = {
+show: function (){
+$('#epan-enquiryform-option-receipent').val($(current_selected_component).attr('email_to'));
+$('#epan-component-option-form-elements').children().remove();
+$(current_selected_component).find('.row').each(function(index, el) {
+slide = $('<li>').html(
+	$(el)
+	.find('.form-field-title').html()
+	).appendTo('#epan-component-option-form-elements')
+	;
+	});
+	// $('#epan-component-option-form-elements').selectable();
+	}
+	}
+	</script>

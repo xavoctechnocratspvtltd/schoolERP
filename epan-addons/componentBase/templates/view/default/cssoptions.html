@@ -1,0 +1,662 @@
+<div id="<?$_name?>" class='epan-css-options' style='display:none'>
+	<h3>Css Options</h3>
+	<div class="panel-group" id="accordion">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+				Basic properties
+				</a>
+				</h4>
+			</div>
+			<div id="collapseOne" class="panel-collapse collapse in">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-8 epan-text-color">
+							<input type='text' id='epan-text-color' class='epan-color-picker'/>
+						</div>
+						<div class="col-md-4">Text Color</div>
+					</div>
+					<div class="row">
+						<div class="col-md-8 epan-font-family">
+							<input type='text' id='epan-font-select' class='epan-font-picker'/>
+						</div>
+						<div class="col-md-4">Google Font</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 epan-font-size-plus">
+							<button id='epan-font-size-plus'>Font Size +</button>
+						</div>
+						<div class="col-md-6">
+							<button  id='epan-font-size-minus'>Font Size -</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							Width
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class='input-group'>
+								<span class="input-group-btn">
+								<button id='epan-component-width-in-px' class="btn btn-default btn-xs" type="button">PX</button>
+								</span>
+								<input type='text' id='epan-component-width-input' class=' ' size='12'/>
+								<span class="input-group-btn">
+								<button id='epan-component-width-in-per' class="btn btn-default btn-xs" type="button">%</button>
+								</span>
+							</div>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<div class="btn-group">
+								<button id='epan-component-width-auto' type="button" class="btn btn-default btn-xs">auto</button>
+								<button id='epan-component-width-max' type="button" class="btn btn-default btn-xs">max-width 100%</button>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+							Class Prefix
+						</div>
+						<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+							<input type='text' id='epan-component-extra-clases' style='width:100%'/>
+						</div>
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<button id='epan-manage-custome-css' type="button" class="btn btn-default btn-xs">Manage</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- PADDING -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+				Padding
+				</a>
+				</h4>
+			</div>
+			<div id="collapseTwo" class="panel-collapse collapse">
+				<div class="panel-body">
+					<!-- Padding panel -->
+					<div class="row">
+						<div class="col-md-6">
+							<label><input type='checkbox' id='epan-all-padding-same'/> All Padding Same</label>
+						</div>
+						<div class="col-md-6">
+							<label><input type='radio' name='padding-unit' checked id='epan-all-padding-unit-px'/>Px</label>
+							<label><input type='radio' name='padding-unit' id='epan-all-padding-unit-per'/>%</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-8">
+							<div id='epan-component-padding-top'  class='epan-component-padding' css='padding-top'></div>
+						</div>
+						<div class="col-md-4">
+							Top <div id='padding-top-value'></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-8">
+							<div id='epan-component-padding-right' class='epan-component-padding' css='padding-right'></div>
+						</div>
+						<div class="col-md-4">
+							Right <div id='padding-right-value'></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-8">
+							<div id='epan-component-padding-bottom' class='epan-component-padding' css='padding-bottom'></div>
+						</div>
+						<div class="col-md-4">
+							Bottom <div id='padding-bottom-value'></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-8">
+							<div id='epan-component-padding-left' class='epan-component-padding' css='padding-left'></div>
+						</div>
+						<div class="col-md-4">
+							Left <div id='padding-left-value'></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- MARGIN -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+				Margin
+				</a>
+				</h4>
+			</div>
+			<div id="collapseThree" class="panel-collapse collapse">
+				<div class="panel-body">
+					<!-- Padding panel -->
+					<div class="row">
+						<div class="col-md-6">
+							<label><input type='checkbox' id='epan-all-margin-same'/> All Margin Same</label>
+						</div>
+						<div class="col-md-6">
+							<label><input type='radio' name='margin-unit' checked id='epan-all-margin-unit-px'/>Px</label>
+							<label><input type='radio' name='margin-unit' id='epan-all-margin-unit-per'/>%</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div id='epan-component-margin-top'  class='epan-component-margin' css='margin-top'></div>
+						</div>
+						<div class="col-md-4">
+							Top <div id='margin-top-value'></div>
+						</div>
+						<div class='col-md-2'>
+							<button type="button" class="btn btn-default btn-xs margin-auto-btn" pos='top'>auto</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div id='epan-component-margin-right' class='epan-component-margin' css='margin-right'></div>
+						</div>
+						<div class="col-md-4">
+							Right <div id='margin-right-value'></div>
+						</div>
+						<div class='col-md-2'>
+							<button type="button" class="btn btn-default btn-xs margin-auto-btn" pos='right'>auto</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div id='epan-component-margin-bottom' class='epan-component-margin' css='margin-bottom'></div>
+						</div>
+						<div class="col-md-4">
+							Bottom <div id='margin-bottom-value'></div>
+						</div>
+						<div class='col-md-2'>
+							<button type="button" class="btn btn-default btn-xs margin-auto-btn" pos='bottom'>auto</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div id='epan-component-margin-left' class='epan-component-margin' css='margin-left'></div>
+						</div>
+						<div class="col-md-4">
+							Left <div id='margin-left-value'></div>
+						</div>
+						<div class='col-md-2'>
+							<button type="button" class="btn btn-default btn-xs margin-auto-btn" pos='left'>auto</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- BACKGROUND -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+				Background
+				</a>
+				</h4>
+			</div>
+			<div id="collapseFour" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-8 epan-background-color">
+							<input type='text' id='epan-background-color' class='epan-color-picker'/>
+						</div>
+						<div class="col-md-4">Back Ground Color</div>
+					</div>
+					<div class="row">
+						<div class="col-md-8">
+							<div class='input-group'>
+								<span class="input-group-btn">
+								<button id='epan-component-background-image-clear-button' class="btn btn-default" type="button">Clr</button>
+								</span>
+								<input type='text' id='epan-component-background-image-input' class='form-control'/>
+								<span class="input-group-btn">
+								<button id='epan-component-background-image-select-button' class="btn btn-default" type="button">Select</button>
+								</span>
+							</div>
+						</div>
+						<div class="col-md-4">
+							Background Image
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="btn-group">
+								<div class="btn btn-default btn-primary" repeat-background='repeat'>All</div>
+								<div class="btn btn-default" repeat-background='repeat-x'>X Only</div>
+								<div class="btn btn-default" repeat-background='repeat-y'>Y Only</div>
+								<div class="btn btn-default" repeat-background='no-repeat'>No-Repeat</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="btn-group">
+								<button id='epan-component-background-fixed' type="button" class="btn btn-default">Fixed</button>
+								<button id='epan-component-background-scroll' type="button" class="btn btn-default">Scroll</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- BORDER -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+				Border
+				</a>
+				</h4>
+			</div>
+			<div id="collapseFive" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<label><input type='checkbox' checked id='epan-all-border-same'/> All Borders Same</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-2">
+							<strong>Width</strong>
+						</div>
+						<div class="col-xs-5 epan-component-border-top-color">
+							<strong>Color</strong>
+						</div>
+						<div class="col-xs-3">
+							<strong>Style</strong>
+						</div>
+						<div class="col-xs-2">
+							<strong>Pos</strong>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-2">
+							<input type='text' size='2' id='epan-component-border-top-width' class='epan-border-width' pos='top'/>
+						</div>
+						<div class="col-xs-3 epan-component-border-top-color">
+							<input type='hidden' id='epan-component-border-top-color' class='epan-color-picker epan-border-color' pos='top'/>
+						</div>
+						<div class="col-xs-5">
+							<div class='btn btn-default btn-xs pull-left epan-border-style' pos='top' style='solid'>sld</div>
+							<div class='btn btn-default btn-xs pull-left epan-border-style' pos='top' style='dashed'>dash</div>
+							<div class='btn btn-default btn-xs pull-left epan-border-style' pos='top' style='dotted'>dotd</div>
+						</div>
+						<div class="col-xs-1">Tp</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-2">
+							<input type='text' size='2' id='epan-component-border-right-width' class='epan-border-width' pos='right'/>
+						</div>
+						<div class="col-xs-3 epan-component-border-right-color">
+							<input type='hidden' id='epan-component-border-right-color' class='epan-color-picker epan-border-color' pos='right'/>
+						</div>
+						<div class="col-xs-5">
+							<div class='btn btn-default btn-xs pull-left epan-border-style' pos='right' style='solid'>sld</div>
+							<div class='btn btn-default btn-xs pull-left epan-border-style' pos='right' style='dashed'>dash</div>
+							<div class='btn btn-default btn-xs pull-left epan-border-style' pos='right' style='dotted'>dotd</div>
+						</div>
+						<div class="col-xs-1">Right</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-2">
+							<input type='text' size='2' id='epan-component-border-bottom-width' class='epan-border-width' pos='bottom'/>
+						</div>
+						<div class="col-xs-3 epan-component-border-bottom-color">
+							<input type='hidden' id='epan-component-border-bottom-color' class='epan-color-picker epan-border-color' pos='bottom'/>
+						</div>
+						<div class="col-xs-5">
+							<div class='btn btn-default btn-xs pull-left epan-border-style' pos='bottom' style='solid'>sld</div>
+							<div class='btn btn-default btn-xs pull-left epan-border-style' pos='bottom' style='dashed'>dash</div>
+							<div class='btn btn-default btn-xs pull-left epan-border-style' pos='bottom' style='dotted'>dotd</div>
+						</div>
+						<div class="col-xs-1">Bottom</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-2">
+							<input type='text' size='2' id='epan-component-border-left-width' class='epan-border-width' pos='left'/>
+						</div>
+						<div class="col-xs-3 epan-component-border-left-color">
+							<input type='hidden' id='epan-component-border-left-color' class='epan-color-picker epan-border-color' pos='left'/>
+						</div>
+						<div class="col-xs-5">
+							<div class='btn btn-default btn-xs pull-left epan-border-style' pos='left' style='solid'>sld</div>
+							<div class='btn btn-default btn-xs pull-left epan-border-style' pos='left' style='dashed'>dash</div>
+							<div class='btn btn-default btn-xs pull-left epan-border-style' pos='left' style='dotted'>dotd</div>
+						</div>
+						<div class="col-xs-1">Left</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		</div> <!-- <div class="panel-group" id="accordion"> -->
+	</div>
+	<script type="text/javascript">
+		padding_unit = 'px';
+		is_all_padding_same = false;
+		margin_unit = 'px';
+		is_all_margin_same = false;
+		is_all_border_same = true;
+
+		$('#epan-background-color').change(function(){
+			$(current_selected_component).css('background-color', '#'+ $(this).val());
+		});
+		$('#epan-text-color').change(function(){
+			$(current_selected_component).css('color', '#'+ $(this).val());
+		});
+
+		$('#epan-font-select').fontselect().change(function(){
+			var font = $(this).val().replace(/\+/g, ' ');
+			font = font.split(':');
+			$(current_selected_component).css('font-family',font[0]);
+		});
+
+		$('#epan-font-size-plus').click(function(event) {
+			/* Act on the event */
+			var fontSize = parseInt($(current_selected_component).css("font-size"));
+			fontSize = fontSize + 1 + "px";
+			$(current_selected_component).css({'font-size':fontSize});
+		});
+
+		$('#epan-font-size-minus').click(function(event) {
+			/* Act on the event */
+			var fontSize = parseInt($(current_selected_component).css("font-size"));
+			// if(fontSize ==1 ) return;
+			fontSize = fontSize - 1 + "px";
+			$(current_selected_component).css({'font-size':fontSize});
+		});
+
+		$('#epan-component-extra-clases').change(function(event) {
+			$(current_selected_component).removeClass($(current_selected_component).attr('data-extra-classes'));
+			$(current_selected_component).addClass($(this).val());
+			$(current_selected_component).attr('data-extra-classes',$(this).val());
+		});
+
+		$('#epan-manage-custome-css').click(function(event) {
+			$('body').univ().successMessage('Put your css in mystyles.css');
+			var fm = $('<div/>').dialogelfinder({
+													url : 'elfinder/php/connector.php',
+													lang : 'en',
+													width : 840,
+													destroyOnClose : true,
+													getFileCallback : function(files, fm) {
+
+													},
+													commandsOptions : {
+														getfile : {
+															oncomplete : 'close',
+															folders : true
+														}
+													}
+												}).dialogelfinder('instance');
+		});
+
+		$('#epan-component-background-image-select-button').click(function(event) {
+			var fm = $('<div/>').dialogelfinder({
+													url : 'elfinder/php/connector.php',
+													lang : 'en',
+													width : 840,
+													destroyOnClose : true,
+													getFileCallback : function(files, fm) {
+														console.log(files.url);
+														$('#epan-component-background-image-input').val(files.url);
+														$(current_selected_component).css('background-image',"url('" + files.url +"')");
+														console.log(files);
+													},
+													commandsOptions : {
+														getfile : {
+															oncomplete : 'close',
+															folders : true
+														}
+													}
+												}).dialogelfinder('instance');
+									});
+			$('#epan-component-background-image-clear-button').click(function(event) {
+				$('#epan-component-background-image-input').val('none');
+				$(current_selected_component).css('background-image','none');
+			});
+
+
+			$('#epan-component-background-scroll').click(function(event) {
+				$(current_selected_component).css('background-attachment','scroll');
+				$('#epan-component-background-fixed').removeClass('btn-primary');
+				$(this).addClass('btn-primary');
+			});
+
+
+			$('#epan-component-background-fixed').click(function(event) {
+				$(current_selected_component).css('background-attachment','fixed');
+				$('#epan-component-background-scroll').removeClass('btn-primary');
+				$(this).addClass('btn-primary');
+			});
+
+			// INITIAL ONE TIME SETUP ON PAGE LOAD
+			$('.epan-component-padding').slider({
+				min: 0,
+				max: 100,
+				slide: function( event, ui ) {
+					if(! is_all_padding_same )
+						$(current_selected_component).css($(this).attr('css'),ui.value  + padding_unit);
+					else{
+						$(current_selected_component).css('padding-top',ui.value  + padding_unit);
+						$(current_selected_component).css('padding-right',ui.value  + padding_unit);
+						$(current_selected_component).css('padding-bottom',ui.value  + padding_unit);
+						$(current_selected_component).css('padding-left',ui.value  + padding_unit);
+					}
+					$('#'+$(this).attr('css')+'-value').html(ui.value+''+ padding_unit);
+				}
+			});
+			$('.epan-component-margin').slider({
+				min: -100,
+				max: 100,
+				slide: function( event, ui ) {
+					if(! is_all_margin_same ){
+						console.log('setting ' + $(this).attr('css') + ' = ' + ui.value+ margin_unit);
+						console.log($(current_selected_component));
+						$(current_selected_component).css($(this).attr('css'),ui.value  + margin_unit);
+					}
+					else{
+						$(current_selected_component).css('marginTop',ui.value  + margin_unit);
+						$(current_selected_component).css('marginRight',ui.value  + margin_unit);
+						$(current_selected_component).css('marginBottom',ui.value  + margin_unit);
+						$(current_selected_component).css('marginLeft',ui.value  + margin_unit);
+					}
+					$('#'+$(this).attr('css')+'-value').html(ui.value+''+ margin_unit);
+				}
+			});
+
+			$('.margin-auto-btn').click(function(event) {
+				$(current_selected_component).css('margin-'+$(this).attr('pos'),'auto');
+			});
+
+			$('#epan-all-padding-same').click(function(event) {
+				if($('#epan-all-padding-same:checked').size() > 0){
+					$('.epan-component-padding').not('#epan-component-padding-top').slider('disable');
+					is_all_padding_same =true;
+				}else{
+					$('.epan-component-padding').slider('enable');
+					is_all_padding_same =false;
+				}
+			});
+			$('#epan-all-margin-same').click(function(event) {
+				if($('#epan-all-margin-same:checked').size() > 0){
+					$('.epan-component-margin').not('#epan-component-margin-top').slider('disable');
+					is_all_margin_same =true;
+				}else{
+					$('.epan-component-margin').slider('enable');
+					is_all_margin_same =false;
+				}
+			});
+			$('#epan-all-padding-unit-px').click(function(event) {
+				padding_unit = 'px';
+			});
+			$('#epan-all-padding-unit-per').click(function(event) {
+				padding_unit = '%';
+			});
+			$('#epan-all-margin-unit-px').click(function(event) {
+				margin_unit = 'px';
+			});
+			$('#epan-all-margin-unit-per').click(function(event) {
+				margin_unit = '%';
+			});
+
+			$('[repeat-background]').click(function(event) {
+				$('[repeat-background]').removeClass('btn-primary');
+				$(this).addClass('btn-primary');
+				$(current_selected_component).css('background-repeat',$(this).attr('repeat-background'));
+			});
+
+			$('#epan-all-border-same').click(function(event) {
+				if($('#epan-all-border-same:checked').size() > 0){
+					is_all_border_same =true;
+				}else{
+					is_all_border_same =false;
+				}
+			});
+
+			$('.epan-border-width').keyup(function(event) {
+				// console.log('border-'+$(this).attr('pos')+'-width',$(this).val());
+				if(is_all_border_same)
+						$(current_selected_component).css('border-width',$(this).val());
+					else
+						$(current_selected_component).css('border-'+$(this).attr('pos')+'-width',$(this).val());
+			});
+
+			$('.epan-border-color').change(function(event) {
+				// console.log('border-'+$(this).attr('pos')+'-color','#'+$(this).val());
+				if(is_all_border_same)
+						$(current_selected_component).css('border-color','#'+$(this).val());
+					else
+						$(current_selected_component).css('border-'+$(this).attr('pos')+'-color','#'+$(this).val());
+			});
+
+			$('.epan-border-style').click(function(event) {
+				// console.log('border-'+$(this).attr('pos')+'-style',$(this).attr('style'));
+				if(is_all_border_same)
+						$(current_selected_component).css('border-style',$(this).attr('style'));
+					else
+						$(current_selected_component).css('border-'+$(this).attr('pos')+'-style',$(this).attr('style'));
+				$(this).siblings().removeClass('btn-primary');
+				$(this).addClass('btn-primary');
+			});
+
+			$('#epan-component-width-in-per').click(function(event) {
+				$(current_selected_component).css('width',$('#epan-component-width-input').val()+'%');
+			});
+
+			$('#epan-component-width-in-px').click(function(event) {
+				$(current_selected_component).css('width',$('#epan-component-width-input').val()+'px');
+			});
+
+			$('#epan-component-width-auto').click(function(event) {
+				$(current_selected_component).css('width','auto');
+			});
+
+			$('#epan-component-width-max').click(function(event) {
+				$(current_selected_component).css('max-width','100%');
+			});
+
+
+			//  GET OPTIONS FROM CURRENT SELECTED COMPONENT
+			function init_css_options(){
+				$('#epan-background-color').val($(current_selected_component).css('background-color'));
+				$('.epan-background-color .current-color').css('background-color',$(current_selected_component).css('background-color'));
+				$('#epan-text-color').val($(current_selected_component).css('color'));
+				$('.epan-text-color .current-color').css('background-color',$(current_selected_component).css('color'));
+				$('#epan-component-padding').val($(current_selected_component).css('padding'));
+				$('#epan-component-margin').val(
+					$(current_selected_component).css('margin-top') + ' ' +
+					$(current_selected_component).css('margin-right') + ' ' +
+					$(current_selected_component).css('margin-bottom') + ' ' +
+					$(current_selected_component).css('margin-left')
+				);
+
+				$('#epan-component-extra-clases').val($(current_selected_component).attr('data-extra-classes'));
+				
+				$('#epan-component-background-image-input').val($(current_selected_component).css('background-image'));
+
+				if($(current_selected_component).css('background-attachment') == 'fixed'){
+					$('#epan-component-background-fixed').addClass('btn-primary');
+				}else{
+					$('#epan-component-background-scroll').addClass('btn-primary');
+				}
+
+				// Set Paddings from current component
+				if($(current_selected_component)[0].style.paddingTop.indexOf('px') != -1){
+					padding_unit = 'px';
+					$('#epan-all-padding-unit-px').prop('checked', true);
+					$('#epan-all-padding-unit-per').removeAttr('checked');
+				}else{
+					padding_unit = '%';
+					$('#epan-all-padding-unit-per').prop('checked', true);
+					$('#epan-all-padding-unit-px').removeAttr('checked');
+				}
+				if($(current_selected_component)[0].style.paddingTop.length > 0){
+					$('#epan-component-padding-top').slider('value',parseInt($(current_selected_component)[0].style.paddingTop));
+					$('#epan-component-padding-right').slider('value',parseInt($(current_selected_component)[0].style.paddingRight));
+					$('#epan-component-padding-bottom').slider('value',parseInt($(current_selected_component)[0].style.paddingBottom));
+					$('#epan-component-padding-left').slider('value',parseInt($(current_selected_component)[0].style.paddingLeft));
+				}else{
+					$('#epan-component-padding-top').slider('value','0');
+					$('#epan-component-padding-right').slider('value','0');
+					$('#epan-component-padding-bottom').slider('value','0');
+					$('#epan-component-padding-left').slider('value','0');
+				}
+				// Set margin
+				if($(current_selected_component)[0].style.marginTop.indexOf('px') != -1){
+					margin_unit = 'px';
+					$('#epan-all-margin-unit-px').prop('checked', true);
+					$('#epan-all-margin-unit-per').removeAttr('checked');
+				}else{
+					margin_unit = '%';
+					$('#epan-all-margin-unit-per').prop('checked', true);
+					$('#epan-all-margin-unit-px').removeAttr('checked');
+				}
+				
+				if($(current_selected_component)[0].style.marginTop.length > 0){
+					$('#epan-component-margin-top').slider('value',parseInt($(current_selected_component)[0].style.marginTop));
+					$('#epan-component-margin-right').slider('value',parseInt($(current_selected_component)[0].style.marginRight));
+					$('#epan-component-margin-bottom').slider('value',parseInt($(current_selected_component)[0].style.marginBottom));
+					$('#epan-component-margin-left').slider('value',parseInt($(current_selected_component)[0].style.marginLeft));
+				}else{
+					$('#epan-component-margin-top').slider('value','0');
+					$('#epan-component-margin-right').slider('value','0');
+					$('#epan-component-margin-bottom').slider('value','0');
+					$('#epan-component-margin-left').slider('value','0');
+					$('#epan-all-margin-unit-px').prop('checked', true);
+					margin_unit='px';
+				}
+
+				// Background Repeat
+
+				$('[repeat-background]').removeClass('btn-primary');
+				$("[repeat-background='"+ $(current_selected_component).css('background-repeat') +"']").addClass('btn-primary');
+
+				// Border Initialization
+
+				border_positions=['top','right','bottom','left'];
+				$.each(border_positions, function(p_index, pos_val) {
+					if($(current_selected_component).css('border-'+pos_val+'-width')){
+						$('#epan-component-border-'+pos_val+'-width').val($(current_selected_component).css('border-'+pos_val+'-width'));
+						$('#epan-component-border-'+pos_val+'-color').val($(current_selected_component).css('border-'+pos_val+'-color'));
+						$('.epan-border-style[pos="'+pos_val+'"]').removeClass('btn-primary');
+						$('.epan-border-style[pos="'+pos_val+'"][style="'+$(current_selected_component).css('border-'+pos_val+'-style')+'"]').addClass('btn-primary');
+						$('.epan-component-border-'+pos_val+'-color .current-color').css('background-color',$(current_selected_component).css('border-'+pos_val+'-color'));
+					}
+				});
+
+				// TODO Get current width and put in Options
+				$('#epan-component-width-input').val('');
+			}
+			// $('.btn').button();
+
+		</script>

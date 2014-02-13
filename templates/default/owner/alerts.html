@@ -1,0 +1,18 @@
+<li class="dropdown alerts-dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> Alerts <span class="badge"><?$new_alerts?></span> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+              <li class="dropdown-header"><?$new_alerts?> New Alerts</li>
+              <?rows?>
+              <?row?>
+                <li><a href="#"><?$name?> <span class="label label-<?$type?>"><?$name?></span>
+                </a>
+                    <span class="message">From Sender :<?$sender_signature?></span>
+                    <span class="time"><i class="fa fa-clock-o"></i><?$created_at?></span>
+                </li>
+
+              <?/row?>
+              <?/rows?>
+                 <li class="divider"></li>
+                <li><a href="#"><?$viewAll?></a></li>
+              </ul>
+            </li>

@@ -1,0 +1,504 @@
+<!doctype html>
+<!--[if lte IE 8]>     <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class=""> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="description" content="Cascading grid layout library" />
+
+  <title>Isotope masonry</title>
+
+  
+    <!-- DEV MODE - including each .css file -->
+    
+      <link rel="stylesheet" href="../bower_components/normalize-css/normalize.css" />
+    
+      <link rel="stylesheet" href="../css/base.css" />
+    
+      <link rel="stylesheet" href="../css/code.css" />
+    
+      <link rel="stylesheet" href="../css/demos.css" />
+    
+      <link rel="stylesheet" href="../css/footer.css" />
+    
+      <link rel="stylesheet" href="../css/hero.css" />
+    
+      <link rel="stylesheet" href="../css/icons.css" />
+    
+      <link rel="stylesheet" href="../css/index.css" />
+    
+      <link rel="stylesheet" href="../css/layout.css" />
+    
+      <link rel="stylesheet" href="../css/modules.css" />
+    
+      <link rel="stylesheet" href="../css/site-nav.css" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@metafizzyco" />
+  <meta name="twitter:url" content="http://isotope.metafizzy.co/masonry.html" />
+  <meta name="twitter:title" content="Isotope masonry" />
+  <meta name="twitter:description" content="filtering &amp; sorting magical layout library" />
+
+</head>
+<body class="masonry-page" data-page="masonry">
+
+  <div id="top-banner">
+    <div class="primary-content">
+      <h2>Isotope v2 beta</h2>
+      <p>
+        <a href="../appendix.html#upgrading-from-v1">Changes from Isotope v1.</a>
+        <a href="https://github.com/desandro/isotope/issues/new">Report any issues with Isotope v2.</a>
+        <i>Thanks for being brave!</i>
+      </p>
+    </div>
+  </div>
+
+  <div id="site-nav">
+    <h1><a href="../.">Isotope</a></h1>
+    <ol>
+      <li class="nav-filtering"><a href="../filtering.html">Filtering</a></li>
+      <li class="nav-sorting"><a href="../sorting.html">Sorting</a></li>
+      <li class="nav-layout-modes">
+        <a href="../layout-modes.html">Layout modes</a>
+        <ul>
+          <li class="nav-masonry"><a href="../layout-modes/masonry.html">masonry</a></li>
+          <li class="nav-fitrows"><a href="../layout-modes/fitrows.html">fitRows</a></li>
+          <li class="nav-cellsbyrow"><a href="../layout-modes/cellsbyrow.html">cellsByRow</a></li>
+          <li class="nav-vertical"><a href="../layout-modes/vertical.html">vertical</a></li>
+          <li class="nav-masonryhorizontal"><a href="../layout-modes/masonryhorizontal.html">masonryHorizontal</a></li>
+          <li class="nav-fitcolumns"><a href="../layout-modes/fitcolumns.html">fitColumns</a></li>
+          <li class="nav-cellsbycolumn"><a href="../layout-modes/cellsbycolumn.html">cellsByColumn</a></li>
+          <li class="nav-horizontal"><a href="../layout-modes/horizontal.html">horizontal</a></li>
+        </ul>
+      </li>
+      <li class="nav-options"><a href="../options.html">Options</a></li>
+      <li class="nav-methods"><a href="../methods.html">Methods</a></li>
+      <li class="nav-events"><a href="../events.html">Events</a></li>
+      <li class="nav-license"><a href="../license.html">License</a></li>
+      <li class="nav-appendix"><a href="../appendix.html">Appendix</a></li>
+      <li class="nav-faq"><a href="../faq.html">FAQ</a></li>
+    </ol>
+  </div>
+
+  
+  
+
+  <div id="content">
+
+    <div class="primary-content">
+      
+        <h1>masonry</h1>
+        
+
+      
+      
+        <ul id="page-nav">
+          
+            <li><a href="#columnwidth">columnWidth</a></li>
+          
+            <li><a href="#gutter">gutter</a></li>
+          
+            <li><a href="#isfitwidth">isFitWidth</a></li>
+          
+        </ul>
+      
+    </div>
+
+    
+    
+<div class="primary-content">
+
+<p>Masonry is the default layout mode.</p>
+
+<p>Masonry works by placing elements in optimal position based on available vertical space, sort of like a mason fitting stones in a wall. You&rsquo;ve probably seen it in use all over the Internet. Isotope&rsquo;s masonry layout mode works just like <a href="http://masonry.desandro.com">regular Masonry</a>.</p>
+
+<div class="demo">
+  <div class="isotope js-isotope is-varying-sizes rainbowed" data-isotope-options='{ "masonry": { "columnWidth": 110 } }'>
+    <div class="element-item width2"><p class="symbol">1</p></div>
+<div class="element-item height2"><p class="symbol">2</p></div>
+<div class="element-item"><p class="symbol">3</p></div>
+<div class="element-item"><p class="symbol">4</p></div>
+<div class="element-item width2 height2"><p class="symbol">5</p></div>
+<div class="element-item width2"><p class="symbol">6</p></div>
+<div class="element-item height2"><p class="symbol">7</p></div>
+<div class="element-item"><p class="symbol">8</p></div>
+<div class="element-item"><p class="symbol">9</p></div>
+<div class="element-item width2"><p class="symbol">10</p></div>
+<div class="element-item"><p class="symbol">11</p></div>
+<div class="element-item"><p class="symbol">12</p></div>
+
+  </div>
+</div>
+
+</div><div class="primary-content">
+
+<h1>Options</h1>
+
+</div><div class="primary-content">
+
+<h2 id="columnwidth">columnWidth</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
+  </p>
+</div>
+
+<p>The width of a column of a horizontal grid.</p>
+
+<p>If <code>columnWidth</code> is not set, Masonry will use the outer width of the first element.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+<pre><code class="js">masonry: {
+  columnWidth: <span class="number">50</span>
+}</code></pre>
+
+  </div>
+  <div class="cell demo">
+    <div class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50 } }'>
+      <div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item w2"></div>
+<div class="mini-item w2 h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item w2"></div>
+<div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item w2"></div>
+<div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item"></div>
+
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Masonry will use the width of that element. See <a href="#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+<pre><code class="html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"flex-5-col"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"grid-sizer"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"mini-item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"mini-item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+
+<pre><code class="css"><span class="class">.flex-5-col</span> <span class="class">.grid-sizer</span>,
+<span class="class">.flex-5-col</span> <span class="class">.mini-item</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">20</span>%;</span></span> <span class="rule">}</span></span>
+<span class="class">.flex-5-col</span> <span class="class">.mini-item</span><span class="class">.w2</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">40</span>%;</span></span> <span class="rule">}</span></span></code></pre>
+
+<pre><code class="js">masonry: {
+  columnWidth: <span class="string">'.grid-sizer'</span>
+},
+itemSelector: <span class="string">'.mini-item'</span></code></pre>
+
+  </div>
+  <div class="cell demo">
+    <div class="isotope js-isotope flex-5-col" data-isotope-options='{ "masonry": { "columnWidth": ".grid-sizer" }, "itemSelector": ".mini-item" }'>
+      <div class="grid-sizer"></div>
+      <div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item w2"></div>
+<div class="mini-item w2 h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item w2"></div>
+<div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item w2"></div>
+<div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item"></div>
+
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/JFpeg">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+</div><div class="primary-content">
+
+<h2 id="gutter">gutter</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
+  </p>
+</div>
+
+<p>The horizontal space between item elements.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+<pre><code class="js">masonry: {
+  columnWidth: <span class="number">50</span>,
+  gutter: <span class="number">10</span>
+}</code></pre>
+
+  </div>
+  <div class="cell demo">
+    <div class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
+      <div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item w2"></div>
+<div class="mini-item w2 h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item w2"></div>
+<div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item w2"></div>
+<div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item"></div>
+
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+<p>To set vertical space between elements, use <code>margin</code> CSS.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+<pre><code class="js">masonry: {
+  columnWidth: <span class="number">50</span>,
+  gutter: <span class="number">10</span>
+}</code></pre>
+
+<pre><code class="css"><span class="id">#masonry-bottom-spaced</span> <span class="class">.mini-item</span> <span class="rules">{
+  <span class="rule"><span class="attribute">margin-bottom</span>:<span class="value"> <span class="number">10</span>px;</span></span>
+<span class="rule">}</span></span></code></pre>
+
+  </div>
+  <div class="cell demo">
+    <div id="masonry-bottom-spaced" class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": 10 } }'>
+      <div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item w2"></div>
+<div class="mini-item w2 h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item w2"></div>
+<div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item w2"></div>
+<div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item"></div>
+
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Masonry will use the width of that element. See <a href="#element-sizing">Element sizing</a>.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+<pre><code class="html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"masonry-flex-gutter"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"gutter-sizer"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"mini-item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"mini-item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+
+<pre><code class="css"><span class="id">#masonry-flex-gutter</span> <span class="class">.gutter-sizer</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">3</span>%;</span></span> <span class="rule">}</span></span></code></pre>
+
+<pre><code class="js">masonry: {
+  columnWidth: <span class="number">50</span>,
+  gutter: <span class="string">'.gutter-sizer'</span>
+},
+itemSelector: <span class="string">'.mini-item'</span></code></pre>
+
+  </div>
+  <div class="cell demo" >
+    <div id="masonry-flex-gutter" class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 50, "gutter": ".gutter-sizer" }, "itemSelector": ".mini-item" }'>
+      <div class="gutter-sizer"></div>
+      <div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item w2"></div>
+<div class="mini-item w2 h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item w2"></div>
+<div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item w2"></div>
+<div class="mini-item"></div>
+<div class="mini-item h2"></div>
+<div class="mini-item"></div>
+<div class="mini-item"></div>
+
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/BAJKn">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+</div><div class="primary-content">
+
+<h2 id="isfitwidth">isFitWidth</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">false</span></code></span>
+  </p>
+</div>
+
+<p>Sets the width of the container to fit the available number of columns, based the size of container's parent element. When enabled, you can center the container with CSS.</p>
+
+<div class="warning">
+  <p>This option does not work with <a href="options.html#element-sizing">element sizing</a> with percentage width. Either columnWidth needs to be set to a fixed size, like <code>columnWidth: 120</code>, or items need to have a fixed size in pixels, like <code>width: 120px</code>. Otherwise, the container and item widths will collapse on one another.</p>
+</div>
+
+<div class="row example">
+  <div class="cell example-code">
+<pre><code class="js">masonry: {
+  columnWidth: <span class="number">100</span>,
+  isFitWidth: <span class="literal">true</span>
+}</code></pre>
+
+<pre><code class="css"><span class="comment">/* center container with CSS */</span>
+<span class="id">#masonry-fit-width</span> <span class="class">.isotope</span> <span class="rules">{
+  <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span> auto;</span></span>
+<span class="rule">}</span></span></code></pre>
+
+  </div>
+  <div id="masonry-fit-width" class="cell demo">
+    <div class="isotope js-isotope" data-isotope-options='{ "masonry": { "columnWidth": 100, "isFitWidth": true }, "itemSelector": ".mini-item" }'>
+      <div class="mini-item w2"></div>
+      <div class="mini-item w2 h2"></div>
+      <div class="mini-item w2 h2"></div>
+      <div class="mini-item w2"></div>
+      <div class="mini-item w2 h2"></div>
+      <div class="mini-item w2 h2"></div>
+      <div class="mini-item w2"></div>
+      <div class="mini-item w2 h2"></div>
+    </div>
+    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/adwgL">Edit this example on CodePen</a></p> -->
+  </div>
+</div>
+
+</div>
+
+
+  </div>
+
+  <div id="footer">
+    <div class="footer-content">
+      
+      <a class="metafizzy-logo" href="http://metafizzy.co">M<span class="etafizzy">etafizzy</span></a>
+      <span class="copyright">&copy; 2013</span>
+    </div>
+  </div>
+
+<!-- Isotope does NOT require jQuery. But it does make things easier -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../bower_components/jquery/jquery.min.js"><\/script>')</script>
+
+
+  <!-- DEV MODE - including each .js file -->
+  
+    <script src="../bower_components/classie/classie.js"></script>
+  
+    <script src="../bower_components/eventie/eventie.js"></script>
+  
+    <script src="../bower_components/doc-ready/doc-ready.js"></script>
+  
+    <script src="../bower_components/get-style-property/get-style-property.js"></script>
+  
+    <script src="../bower_components/eventEmitter/EventEmitter.js"></script>
+  
+    <script src="../bower_components/imagesloaded/imagesloaded.js"></script>
+  
+    <script src="../bower_components/get-size/get-size.js"></script>
+  
+    <script src="../bower_components/jquery-bridget/jquery.bridget.js"></script>
+  
+    <script src="../bower_components/matches-selector/matches-selector.js"></script>
+  
+    <script src="../bower_components/outlayer/item.js"></script>
+  
+    <script src="../bower_components/outlayer/outlayer.js"></script>
+  
+    <script src="../bower_components/masonry/masonry.js"></script>
+  
+    <script src="../bower_components/isotope/js/item.js"></script>
+  
+    <script src="../bower_components/isotope/js/layout-mode.js"></script>
+  
+    <script src="../bower_components/isotope/js/isotope.js"></script>
+  
+    <script src="../bower_components/isotope/js/layout-modes/vertical.js"></script>
+  
+    <script src="../bower_components/isotope/js/layout-modes/fit-rows.js"></script>
+  
+    <script src="../bower_components/isotope/js/layout-modes/masonry.js"></script>
+  
+    <script src="../bower_components/isotope-cells-by-column/cells-by-column.js"></script>
+  
+    <script src="../bower_components/isotope-cells-by-row/cells-by-row.js"></script>
+  
+    <script src="../bower_components/isotope-fit-columns/fit-columns.js"></script>
+  
+    <script src="../bower_components/isotope-horizontal/horizontal.js"></script>
+  
+    <script src="../bower_components/isotope-masonry-horizontal/masonry-horizontal.js"></script>
+  
+    <script src="../js/controller.js"></script>
+  
+    <script src="../js/pages/appendix.js"></script>
+  
+    <script src="../js/pages/events.js"></script>
+  
+    <script src="../js/pages/filtering.js"></script>
+  
+    <script src="../js/pages/index.js"></script>
+  
+    <script src="../js/pages/layout-modes.js"></script>
+  
+    <script src="../js/pages/methods.js"></script>
+  
+    <script src="../js/pages/sorting.js"></script>
+  
+    <script src="../js/pages/vertical.js"></script>
+  
+
+
+
+
+</body>
+</html>

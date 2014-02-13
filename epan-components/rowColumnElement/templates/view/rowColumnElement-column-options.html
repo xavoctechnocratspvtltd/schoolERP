@@ -1,0 +1,38 @@
+<div id='<?$_name?>' class='epan-component-options' component_type="<?$component_type?>">
+	<h3><?$component_type?></h3>
+	<div class="row">
+		<div class="col-md-6">
+			<div id='column-span-input'></div>
+		</div>
+		<div class="col-md-4">
+			Column Size
+		</div>
+		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 epan-component-column-size">
+			
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	
+	$('#column-span-input').slider({
+		min: 1,
+		max: 12,
+		slide: function (event, ui){
+			$(current_selected_component)
+				.removeClass ('col-md-1 col-md-2 col-md-3 col-md-4 col-md-5 col-md-6 col-md-7 col-md-8 col-md-9 col-md-10 col-md-11 col-md-12');
+
+			$(current_selected_component).addClass('col-md-'+ui.value);
+			$(current_selected_component).attr('span',ui.value);
+			$('.epan-component-column-size').html(ui.value);
+		}
+	});
+
+	var <?$component_type?>_options = {
+		show: function (){
+			$('#column-span-input').slider('value',$(current_selected_component).attr('span'));
+			$('.epan-component-column-size').html($(current_selected_component).attr('span'));
+		}
+	}
+
+</script>

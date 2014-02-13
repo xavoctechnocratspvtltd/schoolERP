@@ -1,0 +1,29 @@
+<div id='<?$_name?>' class='epan-frontend-editing-tool <?$class?>'>
+	<img src='epan-components/<?$namespace?>/templates/images/<?$icon?>.png'>
+	<img src='epan-addons/editingToolbar/templates/images/tool_shadow.png' class='tool_shadow'>
+	<br/>
+	<span class='title'><?title?>Tool<?/title?></span>
+	<?$Content?>
+</div>
+<script type='text/javascript'>
+    
+	$(function(){
+		$('#<?$_name?>').draggable({
+			connectToSortable: '.epan-sortable-component',
+            helper: 'clone',
+            revert: 'invalid',
+            tolerance: 'pointer',
+            // cursor: 'top left',
+            start: function () {
+            	// Set a few global functions defined in templates/js/epan_live_edit.js
+            	// these functions are also used as message passing
+             	component_html = '<?$drag_html?>';
+                origin = 'toolbox';
+                create_sortable = <?create_sortable?>false<?/create_sortable?>;
+                component_option_page = '<?$class?>';
+            }
+		});
+	});
+
+</script>
+<?$options?>

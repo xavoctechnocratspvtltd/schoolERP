@@ -1,0 +1,16 @@
+<div id='<?$_name?>' class='epan-component-options' component_type="<?$component_type?>">
+	<h3><?$component_type?></h3>
+	<lable> Gallary ID <input type='text' id='simpleimagegallaryapp-id'/></lable>
+</div>
+
+<script type="text/javascript">
+var <?$component_type?>_options = {
+		show: function (){
+			$('#simpleimagegallaryapp-id').val($(current_selected_component).attr('data-options'));
+		}
+	}
+
+	$('#simpleimagegallaryapp-id').change(function(event) {
+		$(current_selected_component).attr('data-options',$('#simpleimagegallaryapp-id').val());
+	});
+</script>

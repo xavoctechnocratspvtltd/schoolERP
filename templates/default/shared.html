@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<title><?page_title?>Epan :: <?/?></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="keywords" content="<?$keywords?>" />
+		<meta http-equiv="description" content="<?$description?>" />
+		<meta name="google-site-verification" content="L2nqVkO_gRnU4PG2fQuq1cjT_MsoOELoCSlXEcqg4IA" />
+		<link rel="shortcut icon" href="<?template?>images/favicon.ico<?/?>" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="<?template?>css/jquery-ui.css<?/?>" />
+		<link rel="stylesheet" type="text/css" href="<?template?>css/atk-main.css<?/?>" />
+		<link rel="stylesheet" type="text/css" href="<?template?>css/atk-custom.css<?/?>" />
+		<!-- <base href='/' ></base> -->
+		<?$js_include?>
+		<!--[if IE 8]>
+			<link rel="stylesheet" type="text/css" href="<?template?>css/ie8.css<?/?>"/>
+			<script type="text/javascript" src="<?template?>css/ie8.js<?/?>"></script>
+		<![endif]-->
+		<script type="text/javascript">
+			$(function(){
+				<?$document_ready?>
+			});
+		</script>
+	</head>
+	<body style='<?$style?>'>
+		<?$Menu?>
+		<?$Content?>
+		<div id="atk-growl-holder" class="atk-growl"></div>
+	</body>
+	<style type="text/css">
+		<?$extra_css?>
+	</style>
+	<script src="<?template?>js/bootstrap.min.js<?/?>"></script>
+    <script type="text/javascript">
+	    var bootstrapButton = $.fn.button.noConflict() // return $.fn.button to previously assigned value
+		$.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Bootstrap functionality
+
+		$.support.transition = (function(){
+			var thisBody = document.body || document.documentElement,
+			thisStyle = thisBody.style,
+			support = thisStyle.transition !== undefined || thisStyle.WebkitTransition !== undefined || thisStyle.MozTransition !== undefined || thisStyle.MsTransition !== undefined || thisStyle.OTransition !== undefined;
+			return support;
+		})();
+    </script>
+</html>

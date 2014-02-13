@@ -1,0 +1,26 @@
+<html>
+<p>Drop your favorite fruits below:</p>
+<ol dropzone="move string:text/x-example" ondrop="dropHandler(event)">
+ <!-- don't forget to change the "text/x-example" type to something
+ specific to your site -->
+</ol>
+<script>
+  var internalDNDType = 'text/x-example'; // set this to something specific to your site
+  function dropHandler(event) {
+    var li = document.createElement('li');
+    var data = event.dataTransfer.getData(internalDNDType);
+    if (data == 'fruit-apple') {
+      li.textContent = 'Apples';
+    } else if (data == 'fruit-orange') {
+      li.textContent = 'Oranges';
+    } else if (data == 'fruit-pear') {
+      li.textContent = 'Pears';
+    } else {
+      li.textContent = 'Unknown Fruit';
+    }
+    event.target.appendChild(li);
+  }
+</script>
+
+To r
+</html>

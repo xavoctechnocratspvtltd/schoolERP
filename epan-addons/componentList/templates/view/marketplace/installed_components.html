@@ -1,0 +1,33 @@
+<div id='<?$_name?>'>
+	<?rows?>
+		<?row?>
+			<div style='width:300px; float:left; margin:10px;'>
+				<div class="panel panel-<?panel_type?>info<?/panel_type?>">
+	              <div class="panel-heading">
+	                <div class="row">
+	                  <div class="col-xs-3">
+	                    <i class="fa fa-<?icon?>comments<?/icon?> fa-5x"></i>
+	                  </div>
+	                  <div class="col-xs-9 text-right">
+	                    <p class="announcement-heading"><?$type?></p>
+	                    <p class="announcement-text"><?$name?></p>
+	                  </div>
+	                </div>
+	              </div>
+	              <a href="?page=<?$component_namespace?>_page_owner_main">
+	                <div class="panel-footer announcement-bottom">
+	                  <div class="row">
+	                    <div class="col-xs-6">
+	                      Exec Component
+	                    </div>
+	                    <div class="col-xs-6 text-right">
+	                      <i class="fa fa-arrow-circle-right"></i>
+	                    </div>
+	                  </div>
+	                </div>
+	              </a>
+	            </div>
+			</div>
+		<?/row?>
+	<?/rows?>
+</div>

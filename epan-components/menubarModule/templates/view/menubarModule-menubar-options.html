@@ -1,0 +1,84 @@
+<div id='<?$_name?>' class='epan-component-options' component_type="<?$component_type?>">
+	<h3><?$component_type?></h3>
+	<div class="row">
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			Fetch Pages	
+		</div>
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			<button id="epan-component-options-menubar-get-pages" type="button" class="btn btn-default">Get Pages</button>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-body">
+		   <div class="row">
+		   	<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+		   		Menu Title
+		   	</div>
+		   	<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+		   		<input type='text' id='epan-menu-title' />
+		   	</div>
+		   </div>
+		   <div class="row">
+		   	<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+		   		Menu Url
+		   	</div>
+		   	<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+		   		<input type='text' id='epan-menu-url' />
+		   	</div>
+		   </div>
+		   <div class="row">
+		   	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		   		<button class='btn btn-default' id='epan-menu-add-custom'>Add Custom Menu</button>
+		   	</div>
+		   </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			
+		</div>
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	
+	$('#epan-menu-add-custom').click(function(event) {
+		li = $('<li>');
+		a = $('<a>').attr('href',$('#epan-menu-url').val())
+					.append($('#epan-menu-title').val());
+		$(a).appendTo(li);
+		$(li).appendTo('ul.nav');
+	});
+
+	$('#epan-component-options-menubar-get-pages').click(function(event) {
+		$.ajax({
+			url: '/?page=menubarModule_page_getmenus&cut_page=1',
+			type: 'GET',
+		})
+		.done(function(data_received) {
+
+			$(current_selected_component).find('ul.nav').html('').append(data_received);
+			console.log("success");
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+		
+	});
+
+	// if(!$('.navbar ul.nav').hasClass('ui-sortable'))
+		$('.navbar ul.nav').sortable();
+
+	var <?$component_type?>_options = {
+		show: function (){
+			// alert($(current_selected_component).text());
+		}
+	}
+
+</script>

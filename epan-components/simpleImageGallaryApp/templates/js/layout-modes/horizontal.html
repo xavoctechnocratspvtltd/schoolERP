@@ -1,0 +1,266 @@
+<!doctype html>
+<!--[if lte IE 8]>     <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class=""> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="description" content="Cascading grid layout library" />
+
+  <title>Isotope horizontal</title>
+
+  
+    <!-- DEV MODE - including each .css file -->
+    
+      <link rel="stylesheet" href="../bower_components/normalize-css/normalize.css" />
+    
+      <link rel="stylesheet" href="../css/base.css" />
+    
+      <link rel="stylesheet" href="../css/code.css" />
+    
+      <link rel="stylesheet" href="../css/demos.css" />
+    
+      <link rel="stylesheet" href="../css/footer.css" />
+    
+      <link rel="stylesheet" href="../css/hero.css" />
+    
+      <link rel="stylesheet" href="../css/icons.css" />
+    
+      <link rel="stylesheet" href="../css/index.css" />
+    
+      <link rel="stylesheet" href="../css/layout.css" />
+    
+      <link rel="stylesheet" href="../css/modules.css" />
+    
+      <link rel="stylesheet" href="../css/site-nav.css" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@metafizzyco" />
+  <meta name="twitter:url" content="http://isotope.metafizzy.co/horizontal.html" />
+  <meta name="twitter:title" content="Isotope horizontal" />
+  <meta name="twitter:description" content="filtering &amp; sorting magical layout library" />
+
+</head>
+<body class="horizontal-page" data-page="horizontal">
+
+  <div id="top-banner">
+    <div class="primary-content">
+      <h2>Isotope v2 beta</h2>
+      <p>
+        <a href="../appendix.html#upgrading-from-v1">Changes from Isotope v1.</a>
+        <a href="https://github.com/desandro/isotope/issues/new">Report any issues with Isotope v2.</a>
+        <i>Thanks for being brave!</i>
+      </p>
+    </div>
+  </div>
+
+  <div id="site-nav">
+    <h1><a href="../.">Isotope</a></h1>
+    <ol>
+      <li class="nav-filtering"><a href="../filtering.html">Filtering</a></li>
+      <li class="nav-sorting"><a href="../sorting.html">Sorting</a></li>
+      <li class="nav-layout-modes">
+        <a href="../layout-modes.html">Layout modes</a>
+        <ul>
+          <li class="nav-masonry"><a href="../layout-modes/masonry.html">masonry</a></li>
+          <li class="nav-fitrows"><a href="../layout-modes/fitrows.html">fitRows</a></li>
+          <li class="nav-cellsbyrow"><a href="../layout-modes/cellsbyrow.html">cellsByRow</a></li>
+          <li class="nav-vertical"><a href="../layout-modes/vertical.html">vertical</a></li>
+          <li class="nav-masonryhorizontal"><a href="../layout-modes/masonryhorizontal.html">masonryHorizontal</a></li>
+          <li class="nav-fitcolumns"><a href="../layout-modes/fitcolumns.html">fitColumns</a></li>
+          <li class="nav-cellsbycolumn"><a href="../layout-modes/cellsbycolumn.html">cellsByColumn</a></li>
+          <li class="nav-horizontal"><a href="../layout-modes/horizontal.html">horizontal</a></li>
+        </ul>
+      </li>
+      <li class="nav-options"><a href="../options.html">Options</a></li>
+      <li class="nav-methods"><a href="../methods.html">Methods</a></li>
+      <li class="nav-events"><a href="../events.html">Events</a></li>
+      <li class="nav-license"><a href="../license.html">License</a></li>
+      <li class="nav-appendix"><a href="../appendix.html">Appendix</a></li>
+      <li class="nav-faq"><a href="../faq.html">FAQ</a></li>
+    </ol>
+  </div>
+
+  
+  
+
+  <div id="content">
+
+    <div class="primary-content">
+      
+        <h1>horizontal</h1>
+        
+
+      
+      
+        <ul id="page-nav">
+          
+            <li><a href="#install">Install</a></li>
+          
+            <li><a href="#verticalalignment">verticalAlignment</a></li>
+          
+        </ul>
+      
+    </div>
+
+    
+    
+<div class="primary-content">
+
+<p>Items are arranged horizontally.</p>
+
+<div class="demo">
+  <div class="isotope js-isotope horizontal counting" data-isotope-options='{ "layoutMode": "horizontal" }'>
+    <div class="mini-item h2"></div>
+    <div class="mini-item"></div>
+    <div class="mini-item h3"></div>
+    <div class="mini-item w2"></div>
+    <div class="mini-item h2"></div>
+    <div class="mini-item h3"></div>
+    <div class="mini-item"></div>
+    <div class="mini-item h2"></div>
+  </div>
+</div>
+
+</div><div class="primary-content">
+
+<h2 id="install">Install</h2>
+
+<p>This layout mode is not included in <a href="../isotope.pkgd.js">isotope.pkgd.js</a> and must be installed separately.</p>
+
+<p><a href="https://raw.github.com/metafizzy/isotope-horizontal/master/horizontal.js">Download horizontal.js on GitHub</a>.</p>
+
+<p>Or, install with Bower:</p>
+
+<pre><code>bower install metafizzy/isotope-horizontal</code></pre>
+
+
+</div><div class="primary-content">
+
+<h1>Options</h1>
+
+</div><div class="primary-content">
+
+<h2 id="horizontalalignment">verticalAlignment</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Number</i> a decimal 0 to 1</span>
+  </p>
+</div>
+
+<p>Aligns items vertically. <code>0</code> will align the origin edge. <code>1</code> will align the opposite edge. <code>0.5</code> will align center.</p>
+
+<pre><code class="js">layoutMode: <span class="string">'horizontal'</span>,
+horizontal: {
+  verticalAlignment: <span class="number">0.5</span>,
+}</code></pre>
+
+
+<div class="demo">
+  <div class="isotope js-isotope horizontal" data-isotope-options='{ "layoutMode": "horizontal", "horizontal": { "verticalAlignment": 0.5 } }'>
+    <div class="mini-item h2"></div>
+    <div class="mini-item"></div>
+    <div class="mini-item h3"></div>
+    <div class="mini-item w2"></div>
+    <div class="mini-item h2"></div>
+    <div class="mini-item h3"></div>
+    <div class="mini-item"></div>
+    <div class="mini-item h2"></div>
+  </div>
+</div>
+
+</div>
+
+
+  </div>
+
+  <div id="footer">
+    <div class="footer-content">
+      
+      <a class="metafizzy-logo" href="http://metafizzy.co">M<span class="etafizzy">etafizzy</span></a>
+      <span class="copyright">&copy; 2013</span>
+    </div>
+  </div>
+
+<!-- Isotope does NOT require jQuery. But it does make things easier -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../bower_components/jquery/jquery.min.js"><\/script>')</script>
+
+
+  <!-- DEV MODE - including each .js file -->
+  
+    <script src="../bower_components/classie/classie.js"></script>
+  
+    <script src="../bower_components/eventie/eventie.js"></script>
+  
+    <script src="../bower_components/doc-ready/doc-ready.js"></script>
+  
+    <script src="../bower_components/get-style-property/get-style-property.js"></script>
+  
+    <script src="../bower_components/eventEmitter/EventEmitter.js"></script>
+  
+    <script src="../bower_components/imagesloaded/imagesloaded.js"></script>
+  
+    <script src="../bower_components/get-size/get-size.js"></script>
+  
+    <script src="../bower_components/jquery-bridget/jquery.bridget.js"></script>
+  
+    <script src="../bower_components/matches-selector/matches-selector.js"></script>
+  
+    <script src="../bower_components/outlayer/item.js"></script>
+  
+    <script src="../bower_components/outlayer/outlayer.js"></script>
+  
+    <script src="../bower_components/masonry/masonry.js"></script>
+  
+    <script src="../bower_components/isotope/js/item.js"></script>
+  
+    <script src="../bower_components/isotope/js/layout-mode.js"></script>
+  
+    <script src="../bower_components/isotope/js/isotope.js"></script>
+  
+    <script src="../bower_components/isotope/js/layout-modes/vertical.js"></script>
+  
+    <script src="../bower_components/isotope/js/layout-modes/fit-rows.js"></script>
+  
+    <script src="../bower_components/isotope/js/layout-modes/masonry.js"></script>
+  
+    <script src="../bower_components/isotope-cells-by-column/cells-by-column.js"></script>
+  
+    <script src="../bower_components/isotope-cells-by-row/cells-by-row.js"></script>
+  
+    <script src="../bower_components/isotope-fit-columns/fit-columns.js"></script>
+  
+    <script src="../bower_components/isotope-horizontal/horizontal.js"></script>
+  
+    <script src="../bower_components/isotope-masonry-horizontal/masonry-horizontal.js"></script>
+  
+    <script src="../js/controller.js"></script>
+  
+    <script src="../js/pages/appendix.js"></script>
+  
+    <script src="../js/pages/events.js"></script>
+  
+    <script src="../js/pages/filtering.js"></script>
+  
+    <script src="../js/pages/index.js"></script>
+  
+    <script src="../js/pages/layout-modes.js"></script>
+  
+    <script src="../js/pages/methods.js"></script>
+  
+    <script src="../js/pages/sorting.js"></script>
+  
+    <script src="../js/pages/vertical.js"></script>
+  
+
+
+
+
+</body>
+</html>

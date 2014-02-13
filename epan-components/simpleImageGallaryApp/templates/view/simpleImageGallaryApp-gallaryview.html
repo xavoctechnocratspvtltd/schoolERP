@@ -1,0 +1,47 @@
+<?show_tag_selector_to_user?>
+<div id="filters" class="btn-group">
+  <button data-filter="*" class="btn btn-default">show all</button>
+  <?$filter_button?>
+</div>
+<?/show_tag_selector_to_user?>
+<div id="<?$_name?>">
+	<?$Content?>
+</div>
+
+<script type="text/javascript">
+	$('#filters').on( 'click', 'button', function( event ) {
+  		var filtr = $(this).attr('data-filter');
+  	$('#<?$_name?>').isotope({ filter: filtr });
+});
+
+</script>
+
+<style type="text/css">
+#<?$_name?> .item{
+	position: relative;
+}
+
+#<?$_name?> .item:hover{
+	position: relative;
+	width: 140%;
+}
+
+.simpleimagegallaryapp-item-title{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 50px;
+	width: 100%;
+	background-color: gray;
+	opacity: 0.5;
+	color: white;
+}
+
+#<?$_name?> .item .description{
+	
+}
+
+
+
+
+</style>

@@ -1,0 +1,94 @@
+<div id='<?$_name?>' <?$attributes?> class=' <?$class?>' style='<?$style?>'>
+	<div class="panel panel-default">
+		  <div class="panel-heading">
+				<h3 class="panel-title editor" contenteditable='true'>Panel title</h3>
+		  </div>
+		  <form id='form-__COMPONENTID__'>
+		  <div class="panel-body epan-form-fields-rows">
+				<div class="row">
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 editor form-field-title" contenteditable='true'>
+						Full Name
+					</div>
+					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+						<input type='text' id='epan-enquiry-name' class='form-field-input' style='width:100%'/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 editor form-field-title" contenteditable='true'>
+						Email Address
+					</div>
+					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 form-field-title">
+						<input type='text' id='epan-enquiry-email' class='form-field-input' style='width:100%'/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 editor form-field-title" contenteditable='true'>
+						Mobile No
+					</div>
+					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" >
+						<input type='text' id='epan-enquiry-mobile' class='form-field-input' style='width:100%'/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 editor form-field-title" contenteditable='true'>
+						Message
+					</div>
+					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+						<textarea  id='epan-enquiry-message' class='form-field-input' style='width:100%'></textarea>
+					</div>
+				</div>
+				<div class="row form-submit-btn">
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						
+					</div>
+					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+						<button id='epan-component-enquiryform-submit-button' type="button" class="btn btn-success editor" contenteditable='true'>Send</button>
+					</div>
+				</div>
+		  </div>
+		  </form>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+
+				if($('#__COMPONENTID__').attr('email_to')===undefined){
+					$('#__COMPONENTID__').css('outline','2px solid red');
+				}
+
+				$('#__COMPONENTID__ button').click(function(event) {
+					data_to_send = [];
+
+					$('#form-__COMPONENTID__ .row').not('.form-submit-btn').each(function(index, el) {
+						title = $(el).find('.form-field-title').html().trim();
+						value = $(el).find('.form-field-input').val().trim();
+						data_to_send.push({
+							'fieldTitle' : title,
+							'fieldValue': value
+						});
+					});
+					$.ajax({
+						url: '?page=enquiryformModule_page_submit&cut_page=1',
+						type: 'POST',
+						data: {'form_entries': JSON.stringify(data_to_send),
+								'email_to' : $('#__COMPONENTID__').attr('email_to'),
+								'form_id' : '__COMPONENTID__'
+								}
+					}
+					)
+					.done(function(output) {
+						eval(output);
+						console.log("success");
+					})
+					.fail(function(err) {
+						eval(err);
+						console.log("error");
+					})
+					.always(function() {
+						console.log("complete");
+					});
+					
+					console.log('Enquiry Sent');
+				});
+			});
+	<\/script>
+</div>

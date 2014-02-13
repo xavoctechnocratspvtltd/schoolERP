@@ -1,0 +1,50 @@
+<div id='<?$_name?>' class='epan-component-options' component_type="<?$component_type?>">
+	<h3><?$component_type?></h3>
+	<div class="row">
+		<div class="row">
+			<div class="col-md-8">
+				<div class='input-group'>
+					<span class="input-group-btn">
+					<button id='epan-component-image-clear-button' class="btn btn-default" type="button">Clr</button>
+					</span>
+					<input type='text' id='epan-component-image-input' class='form-control'/>
+					<span class="input-group-btn">
+					<button id='epan-component-image-select-button' class="btn btn-default" type="button">Select</button>
+					</span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				Image
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$('#epan-component-image-select-button').click(function(event) {
+	var fm = $('<div/>').dialogelfinder({
+				url : 'elfinder/php/connector.php',
+				lang : 'en',
+				width : 840,
+				destroyOnClose : true,
+				getFileCallback : function(files, fm) {
+					console.log(files.url);
+					$('#epan-component-image-input').val(files.url);
+					$(current_selected_component).find('img').attr('src',files.url);
+					console.log(files);
+				},
+				commandsOptions : {
+					getfile : {
+						oncomplete : 'close',
+						folders : true
+					}
+				}
+			}).dialogelfinder('instance');
+	});
+
+var <?$component_type?>_options = {
+	show: function (){
+		$('#epan-component-image-input').val($(current_selected_component).find('img').attr('src'));
+		console.log($('title').html());
+	}
+}
+</script>
