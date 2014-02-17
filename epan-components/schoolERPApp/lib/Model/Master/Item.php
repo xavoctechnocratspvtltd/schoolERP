@@ -1,28 +1,33 @@
 <?php
 namespace schoolERPApp;
 class Model_Master_Item extends \Model_Table{
-	public $table='schoolERPApp/item';
+	public $table='schoolERPApp_item';
 	function init(){
 		parent::init();
-		$this->hasOne('schoolERPApp/Party','schoolERPApp/party_id');
-		$this->hasOne('schoolERPApp/CategoryType','schoolERPApp/categorytype_id');
-		$this->hasOne('schoolERPApp/Hostel','schoolERPApp/hostel_id');
-		$this->hasOne('schoolERPApp/Session','schoolERPApp/session_id');
+
+
+		$this->hasOne('schoolERPApp/Master_Party','schoolERPApp_party_id')->caption('Party Name');
+		$this->hasOne('schoolERPApp/Master_CategoryType','schoolERPApp_categorytype_id')->caption('CategoryType Name');
+		$this->hasOne('schoolERPApp/Master_Hostel','schoolERPApp_hostel_id')->caption('Hostel Name');
+		$this->addField('name');
+		
 		$this->addHook('beforeSave',$this);
+		
+		$this->add('dynamic_model/Controller_AutoCreator');
 
 
 	}
 	function beforeSave(){
-		$categorytype=$this->add('schoolERPApp/Model_Master_Item');
-		if($categorytype->loaded()){
-		$categorytype->addCondition('id','<>',$this->id);
+		$item=$this->add('schoolERPApp/Model_Master_Item');
+		if($this->loaded()){
+		$item->addCondition('id','<>',$this->id);
 		}
-		$categorytype->addCondition('name',$this['name']);
-		$categorytype->tryLoadAny();
-		if($categorytype->loaded()){
+		$item->addCondition('name',$this['name']);
+		$item->tryLoadAny();
+		if($item->loaded()){
 			throw $this->exception('It is Already Exist');
 		}
 	}
 }
 
-	}
+	

@@ -1,29 +1,31 @@
 <?php
 namespace schoolERPApp;
 class Model_School_Movement extends \Model_Table{
-	public $table='schoolERPApp/movement';
+	public $table='schoolERPApp_movement';
 	function init(){
 		parent::init();
 		
-        $this->hasOne('schoolERPApp/School_Class','schoolERPApp/class_id');
-        $this->hasOne('schoolERPApp/School_Student','schoolERPApp/student_id');
-		$this->addHook('beforeDelete',$this);
-		$this->addHook('beforeSave',$this);
-		$this->add('dynamic_model/Controller_AutoCreator');
-	}
+		
+	$this->addField('name');
+	$this->hasOne('schoolERPApp/School_Student','schoolERPApp_student_id')->Caption('student Name');
 	
-			
+	// $this->addHook('beforeDelete',$this);
+	$this->addHook('beforeSave',$this);
+		
+	$this->add('dynamic_model/Controller_AutoCreator');
+	
+	
 
 	}
 	function beforeSave(){
-		$class=$this->add('schoolERPApp/Model_School_Movement');
-		if($class->loaded()){
-		$class->addCondition('id','<>',$this->id);
+		$attendence=$this->add('schoolERPApp/School_Movement');
+		if($this->loaded()){
+		$attendence->addCondition('id','<>',$this->id);
 		}
-		$class->addCondition('name',$this['name']);
-		$class->tryLoadAny();
-		if($class->loaded()){
+		$attendence->addCondition('name',$this['name']);
+		$attendence->tryLoadAny();
+		if($attendence->loaded()){
 		throw $this->exception('It is Already Exist');
 		}
-	}
+}
 }

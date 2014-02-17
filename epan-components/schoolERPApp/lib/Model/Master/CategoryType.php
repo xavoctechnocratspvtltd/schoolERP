@@ -1,24 +1,28 @@
 <?php
 namespace schoolERPApp;
 class Model_Master_CategoryType extends \Model_Table{
-	public $table='schoolERPApp/categorytype';
+	public $table='schoolERPApp_categorytype';
 	function init(){
 		parent::init();
 		
-		$this->hasOne('schoolERPApp/Subject','schoolERPApp/subject_id');
-		$this->hasMany('schoolERPApp/Category','schoolERPApp/categorytype_id');
-		$this->hasMany('schoolERPApp/Item','schoolERPApp/categorytype_id');
+		
+		$this->hasOne('schoolERPApp/Master_Category','schoolERPApp_category_id');
+		$this->hasOne('schoolERPApp/Master_Subject','schoolERPApp_subject_id');
+		$this->hasOne('schoolERPApp/Master_Diseases','schoolERPApp_diseases_id');
+		$this->addField('name');
+		$this->hasMany('schoolERPApp/Master_Item','schoolERPApp_categorytype_id');
+		$this->hasMany('schoolERPApp/Master_Party','schoolERPApp_categorytype_id');
+		$this->addHook('beforeDelete',$this);
 		$this->addHook('beforeSave',$this);
-
+	    $this->add('dynamic_model/Controller_AutoCreator');  
 	}
 
 	function beforeDelete(){
-	if($this->ref('schoolERPApp/Item')->count()->getOne()>0)
-		$this->api->js()->univ()->errorMessage('Please Delete Item');
+	if($this->ref('schoolERPApp/Master_Item')->count()->getOne()>0)
+		throw $this->exception('please Delete Item content ');
 
-	if($this->ref('schoolERPApp/Category')->count()->getOne()>0)
-		$this->api->js()->univ()->errorMessage('Please Delete Category');
-			
+	if($this->ref('schoolERPApp/Master_Party')->count()->getOne()>0)
+		throw $this->exception('please delete Party content');
 			
 
 	}

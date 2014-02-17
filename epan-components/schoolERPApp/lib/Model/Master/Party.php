@@ -1,29 +1,40 @@
 <?php
 namespace schoolERPApp;
 class Model_Master_Party extends \Model_Table{
-	public $table='schoolERPApp/party';
+	public $table='schoolERPApp_party';
 	function init(){
 		parent::init();
-		$this->hasMany('schoolERPApp/Item','schoolERPApp/party_id');
+
+
+		$this->hasOne('schoolERPApp/Master_CategoryType','schoolERPApp_categorytype_id')->caption('CategoryType Name');
+		$this->addField('name');
+		$this->hasMany('schoolERPApp/Master_Item','schoolERPApp/party_id');
+		
 		$this->addHook('beforeDelete',$this);
 		$this->addHook('beforeSave',$this);
+		
+		$this->add('dynamic_model/Controller_AutoCreator');
 
 	}
-	function beforeDelete(){
-		if($this->ref('schoolERPApp/Item')->count()->getOne()>0)
-		$this->api->js()->univ()->errorMessage('Please Delete Item');
-			
+	
 
-	}
 	function beforeSave(){
 		$party=$this->add('schoolERPApp/Model_Master_Party');
-		if($party->loaded()){
+		if($this->loaded()){
 		$party->addCondition('id','<>',$this->id);
 		}
 		$party->addCondition('name',$this['name']);
 		$party->tryLoadAny();
 		if($party->loaded()){
-			throw $this->exception('It is Already Exist');
+		throw $this->exception('It is Already Exist');
 		}
 	}
+	function beforeDelete(){
+
+	if($this->ref('schoolERPApp/Master_Item')->count()->getOne()>0)
+	throw $this->exception('Please Delete Item content');
+	}
+
+	
+
 }

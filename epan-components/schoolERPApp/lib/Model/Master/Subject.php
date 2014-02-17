@@ -1,27 +1,25 @@
 <?php
 namespace schoolERPApp;
 class Model_Master_Subject extends \Model_Table{
-	public $table='schoolERPApp/subject';
+	public $table='schoolERPApp_subject';
 	function init(){
 		parent::init();
-		$this->hasOne('schoolERPApp/Session','schoolERPApp/session_id');
-		$this->hasOne('schoolERPApp/class','schoolERPApp/class_id');
-		$this->hasMany('schoolERPApp/CategoryType','schoolERPApp/subject_id');
+	
+	$this->hasOne('schoolERPApp/Master_Session','schoolERPApp_session_id')->caption('Session name');
+	$this->hasOne('schoolERPApp/Master_Class','schoolERPApp_class_id')->caption('class name');
+	$this->addField('name');
+		
+	$this->addHook('beforeDelete',$this);
+	$this->addHook('beforeSave',$this);
+		
+	$this->hasMany('schoolERPApp/Master_CategoryType','schoolERPApp_subject_id');
 
-		$this->addHook('beforeDelete',$this);
-		$this->addHook('beforeSave',$this);
-
+    $this->add('dynamic_model/Controller_AutoCreator');
 	}
 
-	function beforeDelete(){
-		if($this->ref('schoolERPApp/CategoryType')->count()->getOne()>0)
-		$this->api->js()->univ()->errorMessage('Please Delete CategoryType');
-			
-
-	}
-	function beforeSave(){
+	   function beforeSave(){
 		$subject=$this->add('schoolERPApp/Model_Master_Subject');
-		if($subject->loaded()){
+		if($this->loaded()){
 		$subject->addCondition('id','<>',$this->id);
 		}
 		$subject->addCondition('name',$this['name']);
@@ -30,4 +28,10 @@ class Model_Master_Subject extends \Model_Table{
 			throw $this->exception('It is Already Exist');
 		}
 	}
+        function beforeDelete(){
+		if($this->ref('schoolERPApp/Master_CategoryType')->count()->getOne()>0)
+		 throw $this->exception('Please Delete categoryType content');
+
+	}
 }
+		

@@ -1,40 +1,38 @@
 <?php
 namespace schoolERPApp;
 class Model_Master_Session extends \Model_Table{
-	public $table='schoolERPApp/session';
+	public $table='schoolERPApp_session';
 	function init(){
 		parent::init();
-		$this->hasOne('schoolERPApp/class','schoolERPApp/class_id');
-		$this->hasMany('schoolERPApp/Item','schoolERPApp/session_id');
-		$this->hasMany('schoolERPApp/Subject','schoolERPApp/session_id');
-		$this->hasMany('schoolERPApp/Fees','schoolERPApp/session_id');
-		$this->addHook('beforeDelete',$this);
-		$this->addHook('beforeSave',$this);
 
-}
+	$this->addField('name');
+	$this->hasMany('schoolERPApp/Master_Class','schoolERPApp_session_id');
+	$this->hasMany('schoolERPApp/Master_Schoolar','schoolERPApp_session_id');
+		
+	$this->addHook('beforeDelete',$this);
+	$this->addHook('beforeSave',$this);
 
-	function beforeDelete(){
-		if($this->ref('schoolERPApp/Item')->count()->getOne()>0)
-		$this->api->js()->univ()->errorMessage('Please Delete Item');
-
-	if($this->ref('schoolERPApp/Subject')->count()->getOne()>0)
-		$this->api->js()->univ()->errorMessage('Please Delete Subject');
-			
-			if($this->ref('schoolERPApp/Fees')->count()->getOne()>0)
-		$this->api->js()->univ()->errorMessage('Please Delete Fees');
-			
-			
+	$this->add('dynamic_model/Controller_AutoCreator');
 
 	}
+
+
 	function beforeSave(){
 		$session=$this->add('schoolERPApp/Model_Master_Session');
 		if($session->loaded()){
-		$session->addCondition('id','<>',$this->id);
+			$session->addCondition('id','<>',$this->id);
 		}
 		$session->addCondition('name',$this['name']);
 		$session->tryLoadAny();
 		if($session->loaded()){
 			throw $this->exception('It is Already Exist');
-		}
+		}	
+	}
+    function beforeDelete(){
+	if($this->ref('schoolERPApp/Master_Schoolar')->count()->getOne()>0)
+	throw $this->exception('Please Delete Schoolar content');
+	
+	if($this->ref('schoolERPApp/Master_Class')->count()->getOne()>0)
+	throw $this->exception('Please Delete Subject content');
 	}
 }
