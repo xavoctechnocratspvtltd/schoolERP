@@ -14,6 +14,7 @@ class Model_Master_Hostel extends \Model_Table{
 		$this->hasMany('schoolERPApp/Master_Item','schoolERPApp_hostel_id');
 		$this->hasMany('schoolERPApp/Master_Fees','schoolERPApp_hostel_id');
 		$this->hasMany('schoolERPApp/Hostel_RoomAllotment','schoolERPApp_hostel_id');
+		$this->hasMany('schoolERPApp/Staff_Staff','schoolERPApp_hostel_id');
 
 		$this->add('dynamic_model/Controller_AutoCreator');
 
@@ -31,15 +32,15 @@ class Model_Master_Hostel extends \Model_Table{
 		}
 	}
      function beforeDelete(){
-		if($this->ref('schoolERPApp/Model_Master_Item')->count()->getOne()>0)
+		if($this->ref('schoolERPApp/Master_Item')->count()->getOne()>0)
 		 throw $this->exception('Please Delete Item content');
 
 
-		if($this->ref('schoolERPApp/Model_Master_Fees')->count()->getOne()>0)
+		if($this->ref('schoolERPApp/Master_Fees')->count()->getOne()>0)
 		 throw $this->exception('Please Delete Fees content');
 		
 		
-		if($this->ref('schoolERPApp/Model_Hostel_RoomAllotment')->count()->getOne()>0)
+		if($this->ref('schoolERPApp/Hostel_RoomAllotment')->count()->getOne()>0)
 		 throw $this->exception('Please Delete Roomallotment content');
 	}
 }

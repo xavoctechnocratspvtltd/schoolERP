@@ -14,7 +14,7 @@ class Model_Hostel_Treatment extends \Model_Table{
 
 	function beforeSave(){
 		$treatment=$this->add('schoolERPApp/Model_Hostel_Treatment');
-		if($treatment->loaded()){
+		if($this->loaded()){
 		$treatment->addCondition('id','<>',$this->id);
 		}
 		$treatment->addCondition('name',$this['name']);

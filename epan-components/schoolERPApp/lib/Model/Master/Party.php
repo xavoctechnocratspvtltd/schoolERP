@@ -10,7 +10,7 @@ class Model_Master_Party extends \Model_Table{
 		$this->addField('name');
 		$this->hasMany('schoolERPApp/Master_Item','schoolERPApp/party_id');
 		
-		$this->addHook('beforeDelete',$this);
+		//$this->addHook('beforeDelete',$this);
 		$this->addHook('beforeSave',$this);
 		
 		$this->add('dynamic_model/Controller_AutoCreator');
@@ -29,12 +29,11 @@ class Model_Master_Party extends \Model_Table{
 		throw $this->exception('It is Already Exist');
 		}
 	}
-	function beforeDelete(){
+	//function beforeDelete(){
 
-	if($this->ref('schoolERPApp/Master_Item')->count()->getOne()>0)
-	throw $this->exception('Please Delete Item content');
+//	if($this->ref('schoolERPApp/Master_Item')->count()->getOne()>0)
+	//throw $this->exception('Please Delete Item content');
 	}
 
 	
 
-}

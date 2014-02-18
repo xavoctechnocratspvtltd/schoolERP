@@ -7,17 +7,17 @@ class Model_Master_Category extends \Model_Table{
 
 		$this->addField('name');
 		
+		$this->hasMany('schoolERPApp/Master_CategoryType','schoolERPApp_category_id');
 		$this->addHook('beforeDelete',$this);			
 		$this->addHook('beforeSave',$this);			
 		
-		$this->hasMany('schoolERPApp/Master_CategoryType','schoolERPApp_category_id');
 
 	    $this->add('dynamic_model/Controller_AutoCreator');
 
 	}
 
 	function beforeSave(){
-		$category=$this->add('schoolERPApp/Master_Category');
+		$category=$this->add('schoolERPApp/Model_Master_Category');
 		if($this->loaded()){
 		$category->addCondition('id','<>',$this->id);
 		}

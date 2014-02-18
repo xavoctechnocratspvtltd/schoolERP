@@ -14,6 +14,7 @@ class Model_Master_Class extends \Model_Table{
 	$this->hasMany('schoolERPApp/Master_Subject','schoolERPApp_class_id');
 	$this->hasMany('schoolERPApp/School_Student','schoolERPApp_class_id');
 	$this->hasMany('schoolERPApp/School_Attendence','schoolERPApp_class_id');
+	$this->hasMany('schoolERPApp/Master_Section','schoolERPApp_class_id');
  
     $this->add('dynamic_model/Controller_AutoCreator');
 
@@ -34,8 +35,8 @@ function beforeSave(){
 	if($this->ref('schoolERPApp/Master_Subject')->count()->getOne()>0)
 	throw $this->exception('please Delete subject content ');
 
-	if($this->ref('schoolERPApp/School_Student')->count()->getOne()>0)
-	throw $this->exception('please Delete Student content ');
+	// if($this->ref('schoolERPApp/School_Student')->count()->getOne()>0)
+	// throw $this->exception('please Delete Student content ');
 
 
 	if($this->ref('schoolERPApp/School_Attendence')->count()->getOne()>0)

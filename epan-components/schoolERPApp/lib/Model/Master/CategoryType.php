@@ -29,7 +29,7 @@ class Model_Master_CategoryType extends \Model_Table{
 	
 	function beforeSave(){
 		$categorytype=$this->add('schoolERPApp/Model_Master_CategoryType');
-		if($categorytype->loaded()){
+		if($this->loaded()){
 		$categorytype->addCondition('id','<>',$this->id);
 		}
 		$categorytype->addCondition('name',$this['name']);

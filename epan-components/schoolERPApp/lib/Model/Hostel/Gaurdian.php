@@ -5,6 +5,7 @@ class Model_Hostel_Gaurdian extends \Model_Table{
 	function init(){
 		parent::init();
 
+		// $this->hasOne('schoolERPApp/Hostel_Gaurdian','schoolERPApp_gaurdian_id');
         $this->addField('name');
 		$this->hasMany('schoolERPApp/School_Student','schoolERPApp_gaurdian_id');
 		$this->addHook('beforeSave',$this);

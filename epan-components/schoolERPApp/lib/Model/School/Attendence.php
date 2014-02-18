@@ -19,7 +19,7 @@ class Model_School_Attendence extends \Model_Table{
 
 	}
 	function beforeSave(){
-		$attendence=$this->add('schoolERPApp/School_Attendence');
+		$attendence=$this->add('schoolERPApp/Model_School_Attendence');
 		if($this->loaded()){
 		$attendence->addCondition('id','<>',$this->id);
 		}

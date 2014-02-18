@@ -19,7 +19,7 @@ class Model_Master_Session extends \Model_Table{
 
 	function beforeSave(){
 		$session=$this->add('schoolERPApp/Model_Master_Session');
-		if($session->loaded()){
+		if($this->loaded()){
 			$session->addCondition('id','<>',$this->id);
 		}
 		$session->addCondition('name',$this['name']);

@@ -6,10 +6,9 @@ class Model_School_Movement extends \Model_Table{
 		parent::init();
 		
 		
-	$this->addField('name');
 	$this->hasOne('schoolERPApp/School_Student','schoolERPApp_student_id')->Caption('student Name');
+	$this->addField('name');
 	
-	// $this->addHook('beforeDelete',$this);
 	$this->addHook('beforeSave',$this);
 		
 	$this->add('dynamic_model/Controller_AutoCreator');
@@ -18,7 +17,7 @@ class Model_School_Movement extends \Model_Table{
 
 	}
 	function beforeSave(){
-		$attendence=$this->add('schoolERPApp/School_Movement');
+		$attendence=$this->add('schoolERPApp/Model_School_Movement');
 		if($this->loaded()){
 		$attendence->addCondition('id','<>',$this->id);
 		}
