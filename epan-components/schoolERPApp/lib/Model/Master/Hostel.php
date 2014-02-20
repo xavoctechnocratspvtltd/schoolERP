@@ -6,12 +6,11 @@ class Model_Master_Hostel extends \Model_Table{
 		parent::init();
 
 		$this->hasOne('schoolERPApp/Master_FeesHead','schoolERPApp_feeshead_id')->caption('Feeshead name');
-		$this->addField('name');
+		$this->addField('name')->caption('Hostel Name');
 		
 		$this->addHook('beforeDelete',$this);
 		$this->addHook('beforeSave',$this);
 		
-		$this->hasMany('schoolERPApp/Master_Item','schoolERPApp_hostel_id');
 		$this->hasMany('schoolERPApp/Master_Fees','schoolERPApp_hostel_id');
 		$this->hasMany('schoolERPApp/Hostel_RoomAllotment','schoolERPApp_hostel_id');
 		$this->hasMany('schoolERPApp/Staff_Staff','schoolERPApp_hostel_id');

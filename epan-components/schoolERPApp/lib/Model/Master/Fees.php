@@ -4,11 +4,10 @@ class Model_Master_Fees extends \Model_Table{
 	public $table='schoolERPApp_fees';
 	function init(){
 		parent::init();
-		$this->addField('name');
 		
-		$this->hasOne('schoolERPApp/Master_FeesHead','schoolERPApp_feeshead_id');
+		$this->hasOne('schoolERPApp/Master_FeesHead','schoolERPApp_feeshead_id')->caption('FeesHead Name');
 		$this->hasOne('schoolERPApp/Master_Session','schoolERPApp_session_id');
-		$this->hasOne('schoolERPApp/Master_Hostel','schoolERPApp_hostel_id');
+		$this->addField('name');
 		
 		$this->addHook('beforeSave',$this);		
 		

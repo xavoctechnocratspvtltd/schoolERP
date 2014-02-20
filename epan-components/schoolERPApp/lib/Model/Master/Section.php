@@ -6,7 +6,7 @@ class Model_Master_Section extends \Model_Table{
 		parent::init();
 
 		$this->hasOne('schoolERPApp/Master_Class','schoolERPApp_section_id')->caption('Section Name');
-		$this->addField('name');
+		$this->addField('name')->caption('Section Name');
 
 		
 			

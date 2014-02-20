@@ -7,7 +7,13 @@ class Model_Master_Party extends \Model_Table{
 
 
 		$this->hasOne('schoolERPApp/Master_CategoryType','schoolERPApp_categorytype_id')->caption('CategoryType Name');
-		$this->addField('name');
+		$this->addField('e_name');
+		$this->addField('item_name');
+		$this->addField('contact_no');
+		$this->addField('Address');
+	
+	
+
 		$this->hasMany('schoolERPApp/Master_Item','schoolERPApp/party_id');
 		
 		//$this->addHook('beforeDelete',$this);

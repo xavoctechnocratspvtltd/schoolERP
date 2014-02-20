@@ -5,7 +5,7 @@ class Model_Master_Category extends \Model_Table{
 	function init(){
 		parent::init();
 
-		$this->addField('name');
+		$this->addField('name')->caption('Category Name');
 		
 		$this->hasMany('schoolERPApp/Master_CategoryType','schoolERPApp_category_id');
 		$this->addHook('beforeDelete',$this);			

@@ -5,7 +5,9 @@ class Model_Master_FeesHead extends \Model_Table{
 	function init(){
 		parent::init();
 
-		$this->addField('name');
+		$this->addField('name')->Caption('fees Name');
+		
+
 		
 		$this->addHook('beforeSave',$this);
 		$this->addHook('beforeDelete',$this);

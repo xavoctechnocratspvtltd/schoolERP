@@ -7,8 +7,38 @@ class Model_Staff_Staff extends \Model_Table{
 		
 		
 	
-	$this->addField('name')->Caption('Attendence');
+	$this->addField('name')->Caption('Staff name');
+	$this->addField('designation');
+	$this->addField('date')->Caption('Date of joining')->type('date')->defaultValue(date('Y-m-d'));
+
+
+	$this->addField('gender')->enum(array('Male','Female'))->display(array('form'=>'Radio'));
+	$this->addField('dob')->type('date');
+	$this->addField('age')->type('number');
+	$this->addField('father name')->Caption('Father name');
+	$this->addField('mother name')->Caption('Mother name');
+	$this->addField('current address')->type('text');
+	$this->addField('ph_number')->type('number');
+	$this->addField('parmanent address')->type('text');
+	$this->addField('phone_number')->type('number')->Caption('Mobile no');
+	$this->addField('category')->enum(array('gen','obc','stc','sc','st'));
+	$this->addField('is_hostel')->type('boolean');
+	$this->addField('guardian name');
+	$this->addField('admission date')->type('date');
+	$this->addField('religion')->enum(array('Hindu','Muslim','Sikh','Isai'));
+	$this->addField('account_no')->caption('Account no');
+	$this->addField('pan_no')->caption('Pan card no');
+	$this->addField('insurance_no')->caption('Insurance no');
+	$this->addField('remark');
+	$this->addField('is_marital status')->type('boolean');
+	
+
+
+
+
+
 	//$this->hasOne('schoolERPApp/Master_Hostel','schoolERPApp_hostel_id')->Caption('Student Name');		
+
 	//$this->hasMany('schoolERPApp/School_Attendence','schoolERPApp_student_id')->Caption('Attendence Name');		
 	
 	// $this->addHook('beforeDelete',$this);

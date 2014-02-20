@@ -6,7 +6,8 @@ class Model_Master_Class extends \Model_Table{
 		parent::init();
 
     $this->hasOne('schoolERPApp/Master_Session','schoolERPApp_session_id')->caption('Session Name');
-	$this->addField('name');
+	$this->addField('name')->caption('class Name');
+	$this->addField('Section')->caption('Section Name');
     
     $this->addHook('beforeSave',$this);
     $this->addHook('beforeDelete',$this);
