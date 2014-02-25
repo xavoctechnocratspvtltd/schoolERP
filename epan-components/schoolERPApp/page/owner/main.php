@@ -4,7 +4,7 @@ class page_schoolERPApp_page_owner_main extends page_componentBase_page_owner_ma
 function init(){
 	parent::init();
 
-	$menu=$this->add('schoolERPApp/View_MenuLayout');
+	$menu=$this->add('schoolERPApp/View_MyMenu');
 	$menu->addMenuItem('schoolERPApp_page_owner_masterschool','School');
 	$menu->addMenuItem('schoolERPApp_page_owner_masterfees','Fees');
 	$menu->addMenuItem('schoolERPApp_page_owner_masteritem','item');
