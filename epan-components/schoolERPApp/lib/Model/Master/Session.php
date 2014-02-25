@@ -16,6 +16,7 @@ class Model_Master_Session extends \Model_Table{
 		
 	$this->addHook('beforeDelete',$this);
 
+
 	$this->add('dynamic_model/Controller_AutoCreator');
 
 

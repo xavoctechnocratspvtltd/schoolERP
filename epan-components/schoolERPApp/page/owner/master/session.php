@@ -1,3 +1,4 @@
+
 <?php
 class page_schoolERPApp_page_owner_master_session extends page_componentBase_page_owner_main{
 	function init(){
