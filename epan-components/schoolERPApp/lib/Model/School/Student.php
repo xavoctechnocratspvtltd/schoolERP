@@ -5,7 +5,7 @@ class Model_School_Student extends \Model_Table{
 	function init(){
 		parent::init();
 		
-	$this->hasOne('schoolERPApp/Hostel_Gaurdian','schoolERPApp_gaurdian_id')->Caption('Class Name');
+	$this->hasOne('schoolERPApp/Master_Class','schoolERPApp_class_id')->Caption('Class Name');
 	$this->addField('name');
 	$this->addField('gender')->enum(array('Male','Female'))->display(array('form'=>'Radio'));
 	$this->addField('dob')->type('date');
@@ -17,13 +17,13 @@ class Model_School_Student extends \Model_Table{
 	$this->addField('parmanent address')->type('text');
 	$this->addField('phone_number')->type('numeric');
 	$this->addField('category')->enum(array('gen','obc','stc','sc','st'));
-	$this->addField('is_hostel')->type('boolean');
+	
 	$this->addField('guardian name');
 	$this->addField('admission date')->type('date');
 	$this->addField('Religion');
 	$this->addField('last_school_name');
 	$this->addField('last_class')->type('numeric');
-
+$this->addField('is_hosteler')->type('boolean');
 
 
 

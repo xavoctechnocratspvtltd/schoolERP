@@ -12,7 +12,7 @@ class Model_Master_Item extends \Model_Table{
 		$this->addField('date')->type('date')->caption('Last Purchase Date');
 		$this->addField('stock')->type('number');
 		
-		//$this->addField('is_issueableitem');
+		$this->addField('is_issueableitem')->type('boolean');
 		//$this->hasMany('schoolERPApp/Master_IssueableItem','schoolERPApp_item_id')->caption('Hostel Name');
 		$this->addHook('beforeSave',$this);
 		$this->add('dynamic_model/Controller_AutoCreator');

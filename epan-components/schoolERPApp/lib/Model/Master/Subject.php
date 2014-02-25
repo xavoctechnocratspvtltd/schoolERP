@@ -5,7 +5,7 @@ class Model_Master_Subject extends \Model_Table{
 	function init(){
 		parent::init();
 	
-	$this->hasOne('schoolERPApp/Master_Session','schoolERPApp_session_id')->caption('Session name');
+	$this->hasOne('schoolERPApp/Master_Session','schoolERPApp_session_id');
 	$this->hasOne('schoolERPApp/Master_Class','schoolERPApp_class_id')->caption('class name');
 	$this->addField('name')->caption('Subject Name');
 	$this->addField('code');

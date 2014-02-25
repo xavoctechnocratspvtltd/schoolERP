@@ -14,7 +14,7 @@ class Model_Master_Party extends \Model_Table{
 	
 	
 
-		$this->hasMany('schoolERPApp/Master_Item','schoolERPApp/party_id');
+		$this->hasMany('schoolERPApp/Master_Item','schoolERPApp_party_id');
 		
 		//$this->addHook('beforeDelete',$this);
 		$this->addHook('beforeSave',$this);

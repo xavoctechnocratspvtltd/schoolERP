@@ -5,7 +5,7 @@ class Model_Master_Schoolar extends \Model_Table{
 	function init(){
 		parent::init();
 
-	 $this->hasOne('schoolERPApp/Master_Session','schoolERPApp_session_id')->caption('Session');
+	 $this->hasOne('schoolERPApp/Master_Session','schoolERPApp_session_id');
 	$this->addField('name');
 	
      $this->addHook('beforeSave',$this);
