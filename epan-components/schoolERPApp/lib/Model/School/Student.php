@@ -17,11 +17,14 @@ class Model_School_Student extends \Model_Table{
 	$this->addField('parmanent address')->type('text');
 	$this->addField('phone_number')->type('number')->caption('Mobile number');
 	$this->addField('category')->enum(array('gen','obc','stc','sc','st'));
-	$this->addField('is_hostel')->type('boolean');
+	
 	$this->addField('guardian name');
 	$this->addField('admission date')->type('date');
 	$this->addField('Religion');
 	$this->addField('last_school_name');
+
+	$this->addField('is_hosteler')->type('boolean');
+
 	$this->addField('last_class')->type('number');
 	$this->hasMany('schoolERPApp/School_Movement','schoolERPApp_student_id');		
 	$this->hasMany('schoolERPApp/School_Attendence','schoolERPApp_student_id');		
