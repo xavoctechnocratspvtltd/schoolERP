@@ -10,7 +10,7 @@ class Model_Master_Class extends \Model_Table{
 	$this->addField('name')->caption('class Name');
 	$this->addField('Section')->caption('Section Name');
     
-    $this->addHook('beforeSave',$this);
+    // $this->addHook('beforeSave',$this);
     $this->addHook('beforeDelete',$this);
 	
 	$this->hasMany('schoolERPApp/Master_Subject','schoolERPApp_class_id');
@@ -22,17 +22,17 @@ class Model_Master_Class extends \Model_Table{
 
 }
 
-function beforeSave(){
-		$class=$this->add('schoolERPApp/Model_Master_Class');
-		if($this->loaded()){
-		$class->addCondition('id','<>',$this->id);
-		}
-		$class->addCondition('name',$this['name']);
-		$class->tryLoadAny();
-		if($class->loaded()){
-			throw $this->exception('It is Already Exist');
-		}
-	}
+// function beforeSave(){
+// 		$class=$this->add('schoolERPApp/Model_Master_Class');
+// 		if($this->loaded()){
+// 		$class->addCondition('id','<>',$this->id);
+// 		}
+// 		$class->addCondition('name',$this['name']);
+// 		$class->tryLoadAny();
+// 		if($class->loaded()){
+// 			throw $this->exception('It is Already Exist');
+		// }
+	
 	function beforeDelete(){
 	if($this->ref('schoolERPApp/Master_Subject')->count()->getOne()>0)
 	throw $this->exception('please Delete subject content ');
