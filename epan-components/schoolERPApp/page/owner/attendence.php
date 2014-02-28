@@ -10,46 +10,45 @@ class page_schoolERPApp_page_owner_attendence extends page_componentBase_page_ow
     $co1=$col->addColumn(6);
     
     $form=$co1->add('Form');
-    $class_field=$form->addField('dropdown','class')->setEmptyText('----');
     $class=$this->add('schoolERPApp/Model_Master_Class');
+
+    
+    $class_field=$form->addField('dropdown','class')->setEmptyText('----');
     $month=$form->addField('dropdown','month')->setEmptyText('----');
-    $month->setValueList(array('1'=>'January','2'=>'Feb',));
+    $month->setValueList(array('1'=>'Jan',
+                            '2'=>'Feb',
+                            '3'=>'March',
+                            '4'=>'April',
+                            '5'=>'May',
+                            '6'=>'Jun',
+                            '7'=>'July',
+                            '8'=>'Augest',
+                            '9'=>'Sep',
+                            '10'=>'Oct',
+                            '11'=>'Nov',
+                            '12'=>'Dec'
+                                        ));
+    
 
     $att=$form->addField('line','Total_attendence');
     $form->addField('checkbox','change_total_attendance');
     $form->addSubmit('Go');
  	  
 
-    $grid=$this->add('Grid');
     $student=$this->add('schoolERPApp/Model_School_Student');
-    // $student->_dsql()->del('order');//->order('name','asc');
-    $grid->setModel($student,array('name','gender'));
-    // $grid->addClass('reloadable');
+    $class1=$student->join('schoolERPApp_class','schoolERPApp_class_id');
+    $class1->addField('section_name','section');
+    $grid=$this->add('CRUD',array('allow_add'=>false,'allow_edit'=>false,'allow_del'=>false));
+    $grid->setModel($student,array('name','section_name','Father_name'));
     $grid->js()->reload();
-    // $grid->js('reloadme',$grid->js()->reload());
 
 
     if($_GET['class_id'])
-    	$student->addCondition('schoolERPApp_class_id',$_GET['class_id']);
-
-        $b=$this->add('schoolERPApp/Model_School_Attendence');
-        if($_GET['attendence_id']){
-          $b->load($_GET['attendence_id']);
-        }
-
-        if($_GET['delete']){
-          $b->load($_GET['delete'])->delete();
-          $grid->js()->reload()->execute();
-        }
-        if($_GET['edit']){
-          $form->js()->reload(array('attendence_id'=>$_GET['edit']))->execute();
-        }
-    $grid->setModel($student);
+    $student->addCondition('schoolERPApp_class_id',$_GET['class_id']);
+    
     $class_field->setModel($class);
-    $grid->addColumn('Button','edit');
-    $grid->addColumn('Confirm','delete');
     if($form->isSubmitted()){
     $grid->js()->reload(array('class_id'=>$form->get('class')))->execute();
          }  
 }
-}   
+}

@@ -25,11 +25,18 @@ class Model_School_Attendence extends \Model_Table{
             							));
 		$this->addField('total_attendance');
 		$this->addField('present');
+		$this->addHook('beforeSave',$this);
 		
 	$this->add('dynamic_model/Controller_AutoCreator');
-	
-	
+	$this->addExpression("roll_no")->set(function($m,$q){
+			return $m->refSQL('student_id')->fieldQuery('roll_no');
+		});
 
 	}
-	
+
+	function beforeSave(){
+		if($this['present'] > $this['total_attendance'])
+			$this->owner->js()->univ()->errorMessage("Present can not be greater then Total Attendance")->execute();
+	}
 }
+	

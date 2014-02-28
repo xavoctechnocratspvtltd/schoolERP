@@ -9,10 +9,10 @@ class Model_Master_Section extends \Model_Table{
 		$this->addField('name')->caption('Section Name');
 
 		
+	    $this->add('dynamic_model/Controller_AutoCreator');
 			
 		
 
-	    $this->add('dynamic_model/Controller_AutoCreator');
 
 	}
 }
