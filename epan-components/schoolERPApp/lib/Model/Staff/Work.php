@@ -7,7 +7,6 @@ class Model_Staff_Work extends \Model_Table{
 		
 	$this->hasOne('schoolERPApp/Staff_Staff','schoolERPApp_staff_id');
 	$this->addField('name')->caption('Work Name');
-	// $this->addHook('beforeDelete',$this);
 	
 	$this->add('dynamic_model/Controller_AutoCreator');
 	

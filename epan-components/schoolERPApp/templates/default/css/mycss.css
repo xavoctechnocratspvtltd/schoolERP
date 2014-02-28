@@ -1,9 +1,15 @@
 body
 {
+<<<<<<< HEAD
 /*{   background-size: 100%;*/
 	background-color:yellow;
 	/*background-background:url('/img/blue-abstract-vista-wallpaper.jpg');*/
 	
+=======
+	background-color:yellow;
+	background-size: 100%;
+	background-image: url("../img/10.jpg");
+>>>>>>> ac7af443429113d1cf7574fd29700b15431eb8fc
 }
   
   

@@ -2,48 +2,32 @@
 class page_schoolERPApp_page_owner_hostel_hostelstudent extends page_componentBase_page_owner_main{
 	function init(){
 		parent::init();
-	$crud=$this->add('Grid')->setModel('schoolERPApp/Hostel_Hostelstudent');
-
-
-	// $col=$this->add('H3')->setAttr('align','center')->
- //        set('Hostel Student Detail');
+	
+		
+	$col=$this->add('H3')->setAttr('align','center')->set('Hosteler Detail');
+    $col=$this->add('Columns');
+    $co1=$col->addColumn(6);
     
- //    $col=$this->add('Columns');
- //    $co1=$col->addColumn(6);
+    $class=$this->add('schoolERPApp/Model_Master_Class');
+    $form=$co1->add('Form');
+    $class_field=$form->addField('dropdown','class')->setEmptyText('----');
     
- //    $f=$co1->add('Form');
-   
- //   $co=$this->add('schoolERPApp/Model_Master_Class');
-   
- //   $session=$co->join('schoolERPApp_session','schoolERPApp_session_id');
- //   $session->addField('session');
- //   $grid=$this->add('Grid');
+ 	  
 
- //        $b=$this->add('schoolERPApp/Model_Master_Class');
- //        if($_GET['class_id']){
- //          $b->load($_GET['class_id']);
- //        }
+    $form->addSubmit('GetList');
+    $hostel=$this->add('schoolERPApp/Model_Hostel_Hostelstudent');
+    $grid=$this->add('CRUD',array('allow_add'=>false,'allow_edit'=>false,'allow_del'=>false));
+    $grid->setModel($hostel,array('name','Father_name','Mother_name','birth_date','current_address','ph_number','parmanent_address','phone_number','guardian_name','guardian_address'));
 
- //        if($_GET['delete']){
- //          $b->load($_GET['delete'])->delete();
- //          $grid->js()->reload()->execute();
- //        }
- //        if($_GET['edit']){
- //          $f->js()->reload(array('class_id'=>$_GET['edit']))->execute();
- //        }
- //    $f->setModel($b);
- //    $f->addSubmit('update');
-    
- //    $grid->setModel($co);
- //    $grid->addColumn('Button','edit');
- //    $grid->addColumn('Confirm','delete');
- //         if($f->isSubmitted()){
- //          $f->update();
- //          $f->js(null,$grid->js()->reload())->reload()->execute();
- //         }  
+
+    if($_GET['class_id'])
+    	$hostel->addCondition('schoolERPApp_class_id',$_GET['class_id']);
         
 
-   }
-   }   
-  	
-	
+
+    $class_field->setModel($class);
+    if($form->isSubmitted()){
+    $grid->js()->reload(array('class_id'=>$form->get('class')))->execute();
+         }  
+ }
+}

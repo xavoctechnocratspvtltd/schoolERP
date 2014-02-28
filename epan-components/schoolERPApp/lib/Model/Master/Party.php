@@ -16,7 +16,6 @@ class Model_Master_Party extends \Model_Table{
 
 		$this->hasMany('schoolERPApp/Master_Item','schoolERPApp_party_id');
 		
-		//$this->addHook('beforeDelete',$this);
 		$this->addHook('beforeSave',$this);
 		
 		$this->add('dynamic_model/Controller_AutoCreator');
@@ -35,10 +34,7 @@ class Model_Master_Party extends \Model_Table{
 		throw $this->exception('It is Already Exist');
 		}
 	}
-	//function beforeDelete(){
 
-//	if($this->ref('schoolERPApp/Master_Item')->count()->getOne()>0)
-	//throw $this->exception('Please Delete Item content');
 	}
 
 	

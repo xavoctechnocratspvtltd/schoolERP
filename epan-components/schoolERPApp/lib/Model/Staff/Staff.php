@@ -37,11 +37,8 @@ class Model_Staff_Staff extends \Model_Table{
 
 
 
-	//$this->hasOne('schoolERPApp/Master_Hostel','schoolERPApp_hostel_id')->Caption('Student Name');		
 
-	//$this->hasMany('schoolERPApp/School_Attendence','schoolERPApp_student_id')->Caption('Attendence Name');		
 	
-	// $this->addHook('beforeDelete',$this);
 	$this->hasMany('schoolERPApp/Staff_Work','schoolERPApp_staff_id');
 	$this->addHook('beforeSave',$this);
 		
