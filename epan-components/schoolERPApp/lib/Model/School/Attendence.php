@@ -7,8 +7,8 @@ class Model_School_Attendence extends \Model_Table{
 		
 		
 	$this->hasOne('schoolERPApp/Master_Class','schoolERPApp_class_id')->Caption('Class Name');
+
 	$this->hasOne('schoolERPApp/School_Student','schoolERPApp_student_id')->Caption('Student Name');
-	// $this->addField('name')->Caption('Attendence');
 	$this->addField('is_attendence')->Caption('Attendence')->type('boolean');
 	$this->addField('month')->setValueList(array('1'=>'Jan',
             							'2'=>'Feb',
@@ -25,8 +25,6 @@ class Model_School_Attendence extends \Model_Table{
             							));
 		$this->addField('total_attendance');
 		$this->addField('present');
-		$this->addHook('beforeSave',$this);
-		
 	$this->add('dynamic_model/Controller_AutoCreator');
 	$this->addExpression("roll_no")->set(function($m,$q){
 			return $m->refSQL('student_id')->fieldQuery('roll_no');
