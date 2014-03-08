@@ -9,7 +9,7 @@ class Model_Hostel_Gaurdian extends \Model_Table{
         $this->addField('name')->caption('Gaurdian Name');
         $this->addField('address')->type('text')->caption('Full Address');
         $this->addField('contact_num')->type('number')->caption('Contact Number');
-		$this->hasMany('schoolERPApp/School_Student','schoolERPApp_gaurdian_id');
+		$this->hasMany('schoolERPApp/School_Student','gaurdian_id');
 		$this->addHook('beforeSave',$this);
 		$this->addHook('beforeDelete',$this);
 		

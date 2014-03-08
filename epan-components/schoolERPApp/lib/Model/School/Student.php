@@ -5,7 +5,7 @@ class Model_School_Student extends \Model_Table{
 	function init(){
 		parent::init();
 		
-	$this->hasOne('schoolERPApp/Master_Class','schoolERPApp_class_id')->Caption('Class Name');
+	$this->hasOne('schoolERPApp/Master_Class','class_id')->Caption('Class Name');
 	$this->addField('name');
 	
 	$this->addField('gender')->enum(array('Male','Female'))->display(array('form'=>'Radio'));
@@ -27,8 +27,8 @@ class Model_School_Student extends \Model_Table{
 	$this->addField('is_hosteler')->type('boolean');
 
 	$this->addField('last_class')->type('number');
-	$this->hasMany('schoolERPApp/School_Movement','schoolERPApp_student_id');		
-	$this->hasMany('schoolERPApp/School_Attendence','schoolERPApp_student_id');		
+	$this->hasMany('schoolERPApp/School_Movement','student_id');		
+	$this->hasMany('schoolERPApp/School_Attendence','student_id');		
 	$this->addExpression('age')->set('date_format(from_days(datediff(now(),birth_date)), "%Y")');
 	$this->addHook('beforeDelete',$this);
 

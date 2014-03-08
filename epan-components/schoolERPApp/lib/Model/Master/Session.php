@@ -10,16 +10,13 @@ class Model_Master_Session extends \Model_Table{
 	$this->addField('date')->type('date')->defaultValue(date('Y-m-d'))->Caption('Session start Date');
 	$this->addField('end_date')->type('date')->Caption('Session End Date');
 
-	$this->hasMany('schoolERPApp/Master_Class','schoolERPApp_session_id');
-	$this->hasMany('schoolERPApp/Master_Schoolar','schoolERPApp_session_id');
-	$this->hasMany('schoolERPApp/Hostel_RoomAllotement','schoolERPApp_session_id');
+	$this->hasMany('schoolERPApp/Master_Class','session_id');
+	$this->hasMany('schoolERPApp/Master_Schoolar','session_id');
+	$this->hasMany('schoolERPApp/Hostel_RoomAllotement','session_id');
 		
 	$this->addHook('beforeDelete',$this);
 
-
 	$this->add('dynamic_model/Controller_AutoCreator');
-
-
 	}
 
 

@@ -6,8 +6,8 @@ class Model_Master_Item extends \Model_Table{
 		parent::init();
 
 
-		$this->hasOne('schoolERPApp/Master_Party','schoolERPApp_party_id')->caption('Party Name');
-		$this->hasOne('schoolERPApp/Master_CategoryType','schoolERPApp_categorytype_id')->caption('CategoryType Name');
+		$this->hasOne('schoolERPApp/Master_Party','party_id')->caption('Party Name');
+		$this->hasOne('schoolERPApp/Master_CategoryType','categorytype_id')->caption('CategoryType Name');
 		$this->addField('name')->caption('Item Name');
 		$this->addField('date')->type('date')->caption('Last Purchase Date');
 		$this->addField('stock')->type('number');

@@ -6,9 +6,9 @@ class Model_School_Attendence extends \Model_Table{
 		parent::init();
 		
 		
-	$this->hasOne('schoolERPApp/Master_Class','schoolERPApp_class_id')->Caption('Class Name');
+	$this->hasOne('schoolERPApp/Master_Class','class_id')->Caption('Class Name');
 
-	$this->hasOne('schoolERPApp/School_Student','schoolERPApp_student_id')->Caption('Student Name');
+	$this->hasOne('schoolERPApp/School_Student','student_id')->Caption('Student Name');
 	$this->addField('is_attendence')->Caption('Attendence')->type('boolean');
 	$this->addField('month')->setValueList(array('1'=>'Jan',
             							'2'=>'Feb',

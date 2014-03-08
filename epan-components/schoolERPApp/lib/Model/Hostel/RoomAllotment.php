@@ -5,25 +5,39 @@ class Model_Hostel_RoomAllotment extends \Model_Table{
 	function init(){
 		parent::init();
 
-		$this->hasOne('schoolERPApp/Master_Hostel','schoolERPApp_hostel_id')->caption('Hostel Name');
-		$this->hasOne('schoolERPApp/Master_Session','schoolERPApp_session_id')->caption('Session');
-		$this->hasOne('schoolERPApp/School_Student','schoolERPApp_student_id')->caption('Student Name');
-        $this->addField('room_no');
-        $this->addField('capacity');
-		//$this->addHook('beforeSave',$this);
-
+		$this->hasOne('schoolERPApp/Master_Hostel','hostel_id')->caption('Hostel Name');
+		// $this->hasOne('schoolERPApp/Hostel_Room','schoolERPApp_room_id')->caption('Room num');
+       
+		// $this->hasOne('Student','student_id');
 		$this->add('dynamic_model/Controller_AutoCreator');
-	   }
- //   function beforeSave(){
-	// 	$roomallotment=$this->add('schoolERPApp/Model_Hostel_RoomAllotment');
-	// 	if($this->loaded()){
-	// 	$roomallotment->addCondition('id','<>',$this->id);
+
+		// $this->addHook('beforeSave',$this);
+		// $this->addHook('beforeDelete',$this);
+	// }
+	// function beforeSave(){
+
+	// 	$tmp=$this->add('schoolERPApp/Model_Hostel_RoomAllotment');
+
+	// 	// $tmp->addCondition('student_id',$this['student_id']);
+
+	// 	$tmp->tryLoadAny();
+
+	// 	if($tmp->loaded()){
+	// 		throw $this->exception("This student has allready a Room Alloted");
+	// 		// ->setField('room_no');
 	// 	}
-	// 	$roomallotment->addCondition('name',$this['name']);
-	// 	$roomallotment->tryLoadAny();
-	// 	if($roomallotment->loaded()){
-	// 		throw $this->exception('It is Already Exist');
-	// 	}
+
+	// 	$st=$this->ref('schoolERPApp_student_id');
+	// 	$st['isalloted']=true;
+	// 	$st->save();
 	// }
 
+	// function beforeDelete(){
+	// 	$st=$this->ref('student_id');
+	// 	$st['isalloted']=false;
+	// 	$st->save();
+	}
 }
+		
+
+	  
