@@ -5,8 +5,12 @@ class Model_Master_Hostel extends \Model_Table{
 	function init(){
 		parent::init();
 
-		$this->hasOne('schoolERPApp/Master_FeesHead','schoolERPApp_feeshead_id')->caption('Feeshead name');
+		//$this->hasOne('schoolERPApp/Master_FeesHead','schoolERPApp_feeshead_id')->caption('Feeshead name');
 		$this->addField('name')->caption('Hostel Name');
+		$this->addField('block_name');
+		$this->addField('block_cap')->caption('Student capacity');
+		$this->addField('alloted');
+		$this->addField('vacent');
 		
 		$this->addHook('beforeDelete',$this);
 		$this->addHook('beforeSave',$this);

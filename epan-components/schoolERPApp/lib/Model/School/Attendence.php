@@ -10,26 +10,31 @@ class Model_School_Attendence extends \Model_Table{
 
 	$this->hasOne('schoolERPApp/School_Student','schoolERPApp_student_id')->Caption('Student Name');
 	$this->addField('is_attendence')->Caption('Attendence')->type('boolean');
-	$this->addField('month')->setValueList(array('1'=>'Jan',
-            							'2'=>'Feb',
-            							'3'=>'March',
-            							'4'=>'April',
-            							'5'=>'May',
-            							'6'=>'Jun',
-            							'7'=>'July',
-            							'8'=>'Augest',
-            							'9'=>'Sep',
-            							'10'=>'Oct',
-            							'11'=>'Nov',
-            							'12'=>'Dec'
+	// $this->addField('month')->setValueList(array('1'=>'Jan',
+ //            							'2'=>'Feb',
+ //            							'3'=>'March',
+ //            							'4'=>'April',
+ //            							'5'=>'May',
+ //            							'6'=>'Jun',
+ //            							'7'=>'July',
+ //            							'8'=>'Augest',
+ //            							'9'=>'Sep',
+ //            							'10'=>'Oct',
+ //            							'11'=>'Nov',
+ //            							'12'=>'Dec'
             							));
 		$this->addField('total_attendance');
 		$this->addField('present');
-
 	$this->add('dynamic_model/Controller_AutoCreator');
-	
-	
+	$this->addExpression("roll_no")->set(function($m,$q){
+			return $m->refSQL('student_id')->fieldQuery('roll_no');
+		});
 
 	}
-	
+
+	function beforeSave(){
+		if($this['present'] > $this['total_attendance'])
+			$this->owner->js()->univ()->errorMessage("Present can not be greater then Total Attendance")->execute();
+	}
 }
+	

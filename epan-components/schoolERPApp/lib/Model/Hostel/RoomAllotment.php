@@ -6,10 +6,11 @@ class Model_Hostel_RoomAllotment extends \Model_Table{
 		parent::init();
 
 		$this->hasOne('schoolERPApp/Master_Hostel','schoolERPApp_hostel_id')->caption('Hostel Name');
-		$this->hasOne('schoolERPApp/Master_Session','schoolERPApp_session_id')->caption('Session');
-		$this->hasOne('schoolERPApp/School_Student','schoolERPApp_student_id')->caption('Student Name');
-        $this->addField('room_no');
-        $this->addField('capacity');
+		// $this->hasOne('schoolERPApp/Master_Session','schoolERPApp_session_id')->caption('Session');
+		// $this->hasOne('schoolERPApp/School_Student','schoolERPApp_student_id')->caption('Student Name');
+        $this->addField('block_name');
+        $this->addField('room');
+        $this->addField('student');
 		//$this->addHook('beforeSave',$this);
 
 		$this->add('dynamic_model/Controller_AutoCreator');

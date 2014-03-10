@@ -12,7 +12,7 @@ class Model_Master_Session extends \Model_Table{
 
 	$this->hasMany('schoolERPApp/Master_Class','schoolERPApp_session_id');
 	$this->hasMany('schoolERPApp/Master_Schoolar','schoolERPApp_session_id');
-	$this->hasMany('schoolERPApp/Hostel_RoomAllotement','schoolERPApp_session_id');
+	//$this->hasMany('schoolERPApp/Hostel_RoomAllotement','schoolERPApp_session_id');
 		
 	$this->addHook('beforeDelete',$this);
 
