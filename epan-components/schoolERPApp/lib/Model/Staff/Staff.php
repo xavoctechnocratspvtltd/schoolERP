@@ -39,7 +39,7 @@ class Model_Staff_Staff extends \Model_Table{
 
 
 	
-	$this->hasMany('schoolERPApp/Staff_Work','schoolERPApp_staff_id');
+	$this->hasMany('schoolERPApp/Staff_Work','staff_id');
 	$this->addHook('beforeSave',$this);
 		
 	$this->add('dynamic_model/Controller_AutoCreator');

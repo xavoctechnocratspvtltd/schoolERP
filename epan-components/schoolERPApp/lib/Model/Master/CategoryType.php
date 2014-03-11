@@ -6,10 +6,10 @@ class Model_Master_CategoryType extends \Model_Table{
 		parent::init();
 		
 		
-		$this->hasOne('schoolERPApp/Master_Category','schoolERPApp_category_id');
+		$this->hasOne('schoolERPApp/Master_Category','category_id');
 		$this->addField('name');
-		$this->hasMany('schoolERPApp/Master_Item','schoolERPApp_categorytype_id');
-		$this->hasMany('schoolERPApp/Master_Party','schoolERPApp_categorytype_id');
+		$this->hasMany('schoolERPApp/Master_Item','categorytype_id');
+		$this->hasMany('schoolERPApp/Master_Party','categorytype_id');
 		$this->addHook('beforeDelete',$this);
 		$this->addHook('beforeSave',$this);
 	    $this->add('dynamic_model/Controller_AutoCreator');  

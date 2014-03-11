@@ -5,15 +5,15 @@ class Model_Master_Fees extends \Model_Table{
 	function init(){
 		parent::init();
 		
-		$this->hasOne('schoolERPApp/Master_FeesHead','schoolERPApp_feeshead_id')->caption('FeesHead Name');
-		$this->hasOne('schoolERPApp/Master_Session','schoolERPApp_session_id');
+		$this->hasOne('schoolERPApp/Master_FeesHead','feeshead_id')->caption('FeesHead Name');
+		$this->hasOne('schoolERPApp/Master_Session','session_id');
 		$this->addField('name');
-		
 		$this->addHook('beforeSave',$this);		
-		
-		$this->hasMany('schoolERPApp/Master_Hostel','schoolERPApp_fees_id');
-
+		$this->hasMany('schoolERPApp/Master_Hostel','fees_id');
 		$this->add('dynamic_model/Controller_AutoCreator');
+		
+		
+
 
 	}
 	function beforeSave(){

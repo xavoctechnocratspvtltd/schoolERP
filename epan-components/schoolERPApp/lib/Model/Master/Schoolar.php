@@ -5,7 +5,7 @@ class Model_Master_Schoolar extends \Model_Table{
 	function init(){
 		parent::init();
 
-	 $this->hasOne('schoolERPApp/Master_Session','schoolERPApp_session_id');
+	 $this->hasOne('schoolERPApp/Master_Session','session_id');
 	$this->addField('name');
 
 	$this->addField('gender')->enum(array('Male','Female'))->display(array('form'=>'Radio'));

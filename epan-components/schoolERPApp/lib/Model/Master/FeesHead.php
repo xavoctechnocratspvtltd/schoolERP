@@ -6,16 +6,14 @@ class Model_Master_FeesHead extends \Model_Table{
 		parent::init();
 
 		$this->addField('name')->Caption('fees Name');
-		
-
-		
+		$this->hasMany('schoolERPApp/Master_Fees','feeshead_id');
+		$this->hasMany('schoolERPApp/Master_Hostel','feeshead_id');
 		$this->addHook('beforeSave',$this);
 		$this->addHook('beforeDelete',$this);
-		
-		$this->hasMany('schoolERPApp/Master_Fees','schoolERPApp_feeshead_id');
-		$this->hasMany('schoolERPApp/Master_Hostel','schoolERPApp_feeshead_id');
         $this->add('dynamic_model/Controller_AutoCreator');
-	}
+		
+
+		}
 
       function beforeSave(){
 		$feeshead=$this->add('schoolERPApp/Model_Master_FeesHead');

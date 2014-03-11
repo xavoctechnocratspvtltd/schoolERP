@@ -5,7 +5,7 @@ class Model_Staff_Work extends \Model_Table{
 	function init(){
 		parent::init();
 		
-	$this->hasOne('schoolERPApp/Staff_Staff','schoolERPApp_staff_id');
+	$this->hasOne('schoolERPApp/Staff_Staff','staff_id');
 	$this->addField('name')->caption('Work Name');
 	
 	$this->add('dynamic_model/Controller_AutoCreator');

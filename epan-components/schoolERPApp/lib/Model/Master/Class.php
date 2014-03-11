@@ -6,16 +6,17 @@ class Model_Master_Class extends \Model_Table{
 		parent::init();
 
 
-    $this->hasOne('schoolERPApp/Master_Session','schoolERPApp_session_id')->caption('Session id');
+    $this->hasOne('schoolERPApp/Master_Session','session_id')->caption('Session id');
 	$this->addField('name')->caption('class Name');
-	$this->addField('section')->caption('Section Name');
+	$this->addField('no_std')->caption('No of Student ');
+	$this->addField('no_sub')->caption('No of Subject');
     
     
 	
-	$this->hasMany('schoolERPApp/Master_Subject','schoolERPApp_class_id');
-	$this->hasMany('schoolERPApp/School_Student','schoolERPApp_class_id');
-	$this->hasMany('schoolERPApp/School_Attendence','schoolERPApp_class_id');
-	$this->hasMany('schoolERPApp/Master_Section','schoolERPApp_class_id');
+	$this->hasMany('schoolERPApp/Master_Subject','class_id');
+	$this->hasMany('schoolERPApp/School_Student','class_id');
+	$this->hasMany('schoolERPApp/School_Attendence','class_id');
+	$this->hasMany('schoolERPApp/Master_Section','class_id');
  
     $this->add('dynamic_model/Controller_AutoCreator');
 
