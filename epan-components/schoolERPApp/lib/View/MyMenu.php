@@ -1,15 +1,14 @@
 <?php
 
-namespace schoolERPApp;
+namespace companyERP;
+
 class View_MyMenu extends \Menu_Basic{
-public $items=array();
 	function init(){
 		parent::init();
 		
 	}
 
-
-	function addMenuItem($page,$label=null,$icon='comments',$panel_type='info'){
+	function addMenuItem($page,$label=null,$panel_type='danger',$icon='gears'){
         if(!$label){
             $label=ucwords(str_replace('_',' ',$page));
         }
@@ -26,14 +25,12 @@ public $items=array();
             'page'=>$page,
             'href'=>$js_page?:$this->api->url($page),
             'label'=>$label,
-            'icon'=>$icon,
             'panel_type'=>$panel_type,
-            // $this->class_tag=>$this->isCurrent($page)?$this->current_menu_class:$this->inactive_menu_class,
+            'icon'=>$icon,
+            $this->class_tag=>$this->isCurrent($page)?$this->current_menu_class:$this->inactive_menu_class,
         );
         return $this;
     }
-
-
 	function defaultTemplate(){
 		$l=$this->api->locate('addons',__NAMESPACE__, 'location');
 		$this->api->pathfinder->addLocation(
@@ -43,6 +40,6 @@ public $items=array();
 		  		'css'=>'templates/css'
 				)
 			)->setParent($l);
-		return array('default/view/mymenu');
+		return array('view/mymenu');
 	}
 }

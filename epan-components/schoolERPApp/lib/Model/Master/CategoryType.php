@@ -19,8 +19,8 @@ class Model_Master_CategoryType extends \Model_Table{
 	if($this->ref('schoolERPApp/Master_Item')->count()->getOne()>0)
 		throw $this->exception('please Delete Item content ');
 
-	if($this->ref('schoolERPApp/Master_Party')->count()->getOne()>0)
-		throw $this->exception('please delete Party content');
+	// if($this->ref('schoolERPApp/Master_Party')->count()->getOne()>0)
+		// throw $this->exception('please delete Party content');
 			
 
 	}

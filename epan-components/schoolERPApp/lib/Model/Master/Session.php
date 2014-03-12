@@ -30,4 +30,17 @@ class Model_Master_Session extends \Model_Table{
 	throw $this->exception('Please Delete Subject content');
 		}
 	}
+	 function markCurrent(){
+        $this->dsql()->set('is_current',0)->do_update();
+        $this->set('is_current',true)->update();
+    }
+
+    function create($name, $date, $end_date){
+        $new_session=$this->add('schoolERPApp/Model_Master_Session');
+        $new_session['name']=$name;
+        $new_session['date']=$start_date;
+        $new_session['end_date']=$end_date;
+        $new_session->save();
+        return $new_session->id;
+    }
 }

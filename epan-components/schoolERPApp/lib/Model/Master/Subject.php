@@ -9,8 +9,8 @@ class Model_Master_Subject extends \Model_Table{
 	$this->addField('name')->caption('Subject Name');
 	$this->addField('code');
 		
-	$this->addHook('beforeDelete',$this);
-	$this->addHook('beforeSave',$this);
+	// $this->addHook('beforeDelete',$this);
+	// $this->addHook('beforeSave',$this);
 		
 	$this->hasMany('schoolERPApp/Master_CategoryType','subject_id');
 

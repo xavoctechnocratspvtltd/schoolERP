@@ -1,20 +1,17 @@
-
-<div id='<?$_name?>'>
-	<link rel="stylesheet" type="text/css" href="<?template?>default/css/mycss.css<?/?>" />
-	<div class='row container'>
+<div id='<?$_name?>' class="<?$class?>" style="<?$style?>">
     <?Item?>
-	<?MenuItem?>
-			<ul>
-
+	<div class='row container'>
+	
+	        <?MenuItem?>
+	        <ul>
 	        <a href="<?$href?>">
-	<div style='width:150px; float:left;margin:20px;'> 
-			
+			<div style='width:150px; float:left;margin:10px;'>
 				<div class="panel panel-<?panel_type?>info<?/panel_type?>">
 	              <div class="panel-heading">
 	                <div class="row">
 	                  <div class="col-xs-3">
 	                    <i class="fa fa-<?icon?>comments<?/icon?> fa-5x"></i>
-	                    <h4><?label?>MenuItem<?/?></h4> 
+	                    <h4><?label?>MenuItem<?/?></h4>
 	                  </div>
 	                  <div class="col-xs-9 text-right">
 	                    <p class="announcement-heading"><?$type?></p>
@@ -36,4 +33,3 @@
 	    <?/?>
 	</div>
 </div>
-</html>
