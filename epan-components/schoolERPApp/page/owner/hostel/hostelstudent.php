@@ -17,7 +17,7 @@ class page_schoolERPApp_page_owner_hostel_hostelstudent extends page_componentBa
     $form->addSubmit('GetList');
     $hostel=$this->add('schoolERPApp/Model_Hostel_Hostelstudent');
     $grid=$this->add('CRUD',array('allow_add'=>false,'allow_edit'=>false,'allow_del'=>false));
-    $grid->setModel($hostel,array('name','Father_name','Mother_name','birth_date','current_address','ph_number','parmanent_address','phone_number','guardian_name','guardian_address'));
+    $grid->setModel($hostel,array('name','Father_name','Mother_name','birth_date','current_address','ph_number','parmanent_address','city','phone_number','guardian_name','guardian_address'));
 
 
     if($_GET['class_id'])

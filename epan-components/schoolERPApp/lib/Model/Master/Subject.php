@@ -9,13 +9,18 @@ class Model_Master_Subject extends \Model_Table{
 	$this->addField('name')->caption('Subject Name');
 	$this->addField('code');
 		
-	// $this->addHook('beforeDelete',$this);
-	// $this->addHook('beforeSave',$this);
+	$this->addHook('beforeDelete',$this);
 		
 	$this->hasMany('schoolERPApp/Master_CategoryType','subject_id');
 
     $this->add('dynamic_model/Controller_AutoCreator');
+	}
+
+	 
 	
+        function beforeDelete(){
+		if($this->ref('schoolERPApp/Master_CategoryType')->count()->getOne()>0)
+		 throw $this->exception('Please Delete categoryType content');
 
 	   
 	}

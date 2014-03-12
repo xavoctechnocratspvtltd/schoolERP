@@ -14,6 +14,7 @@ class page_schoolERPApp_page_owner_attendence extends page_componentBase_page_ow
     $class_field=$form->addField('dropdown','class')->setEmptyText('----');
       
     $student=$this->add('schoolERPApp/Model_School_Student');
+    $class_field=$form->addField('dropdown','class');
     $crud=$this->add('CRUD',array('allow_add'=>false,'allow_edit'=>false,'allow_del'=>false));
     $crud->setModel($student,array('name'));
     $form->addSubmit('Go');
@@ -23,6 +24,7 @@ class page_schoolERPApp_page_owner_attendence extends page_componentBase_page_ow
         
     $class_field->setModel($class);
 
+  
 
     if($crud->grid){
 
@@ -32,22 +34,9 @@ class page_schoolERPApp_page_owner_attendence extends page_componentBase_page_ow
     
     if($form->isSubmitted()){
         // $form->update();
-    $crud->grid->js()->reload(array('class_id'=>$form->$_GET['class_id']))->execute();
+    // $crud->grid->js()->reload(array('class_id'=>$form->$_GET['class_id']))->execute();
           // $f->js(null,$grid->js()->reload())->reload()->execute();
 
          }  
-
-
-
-         
-    }
-}
-
-
-
-
-
-
-       
-
-       
+     }
+ }

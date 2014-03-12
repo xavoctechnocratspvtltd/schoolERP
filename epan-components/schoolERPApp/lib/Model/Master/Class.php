@@ -8,6 +8,8 @@ class Model_Master_Class extends \Model_Table{
 
     $this->hasOne('schoolERPApp/Master_Session','session_id')->caption('Session id');
 	$this->addField('name')->caption('class Name');
+	$this->addField('no_std')->caption('No of Student ');
+	$this->addField('no_sub')->caption('No of Subject');
     
     
 	

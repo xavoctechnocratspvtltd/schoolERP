@@ -6,6 +6,7 @@ class Model_Hostel_Gaurdian extends \Model_Table{
 		parent::init();
 
 		// $this->hasOne('schoolERPApp/Hostel_Gaurdian','schoolERPApp_gaurdian_id');
+        $this->addField('std_name')->caption('Hosteler Name');
         $this->addField('name')->caption('Gaurdian Name');
         $this->addField('address')->type('text')->caption('Full Address');
         $this->addField('contact_num')->type('number')->caption('Contact Number');

@@ -1,8 +1,9 @@
 <?php
 
-namespace companyERP;
+namespace schoolERPApp;
 
 class View_MyMenu extends \Menu_Basic{
+public $items=array();
 	function init(){
 		parent::init();
 		
@@ -31,7 +32,7 @@ class View_MyMenu extends \Menu_Basic{
         );
         return $this;
     }
-	function defaultTemplate(){
+	function defaultTemplates(){
 		$l=$this->api->locate('addons',__NAMESPACE__, 'location');
 		$this->api->pathfinder->addLocation(
 			$this->api->locate('addons',__NAMESPACE__),

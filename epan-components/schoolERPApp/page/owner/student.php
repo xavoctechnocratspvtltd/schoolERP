@@ -6,6 +6,7 @@ $student=$this->add('schoolERPApp/Model_School_Student');
 $grid=$this->add('CRUD');
 $grid->setModel($student);
 
+	
 		
 
 	}

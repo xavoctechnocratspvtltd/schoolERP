@@ -5,6 +5,7 @@ class Model_Hostel_RoomAllotment extends \Model_Table{
 	function init(){
 		parent::init();
 
+
 		$this->hasOne('schoolERPApp/Master_Hostel','hostel_id')->caption('Hostel Name');
 		// $this->hasOne('schoolERPApp/Hostel_Room','schoolERPApp_room_id')->caption('Room num');
        

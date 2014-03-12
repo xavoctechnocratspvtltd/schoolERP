@@ -5,7 +5,7 @@ class Model_Hostel_Treatment extends \Model_Table{
 	function init(){
 		parent::init();
 
-		$this->hasOne('schoolERPApp/Master_Diseases','diseases_id')->caption('Diseases Name');
+		$this->hasOne('schoolERPApp/Hostel_Diseases','diseases_id')->caption('Diseases Name');
 		$this->addField('name')->caption('Treatment Name');
 		$this->addField('date')->type('date')->type('date')->defaultValue(date('Y-m-d'));
 	    $this->addHook('beforeSave',$this);
