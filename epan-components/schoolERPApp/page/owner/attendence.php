@@ -4,7 +4,8 @@ class page_schoolERPApp_page_owner_attendence extends page_componentBase_page_ow
 		parent::init();
 
 
-		
+
+
 	$col=$this->add('H3')->setAttr('align','center')->set('Attendence Detail');
     $col=$this->add('Columns');
     $co1=$col->addColumn(6);
@@ -17,26 +18,30 @@ class page_schoolERPApp_page_owner_attendence extends page_componentBase_page_ow
     $class_field=$form->addField('dropdown','class');
     $crud=$this->add('CRUD',array('allow_add'=>false,'allow_edit'=>false,'allow_del'=>false));
     $crud->setModel($student,array('name'));
-    $form->addSubmit('Go');
-    
+
+   $form->addSubmit('Go');
+ 	  
+
     if($_GET['class_id'])
         $student->addCondition('class_id',$_GET['class_id']);
         
     $class_field->setModel($class);
+        if($crud->grid)
 
-  
-
-    if($crud->grid){
-
-    $crud->grid->addQuickSearch(array('name'));
-
-        }
-    
     if($form->isSubmitted()){
-        // $form->update();
-    // $crud->grid->js()->reload(array('class_id'=>$form->$_GET['class_id']))->execute();
-          // $f->js(null,$grid->js()->reload())->reload()->execute();
+        //$form->update();
+    $crud->grid->js()->reload(array('class'=>$form->get('class_id'))->execute();
+         } 
+    $crud->grid->addQuickSearch(array('name'));
+    }  
+}
 
-         }  
-     }
- }
+
+
+
+
+
+
+       
+
+       

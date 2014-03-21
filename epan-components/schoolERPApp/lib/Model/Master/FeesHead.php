@@ -5,33 +5,16 @@ class Model_Master_FeesHead extends \Model_Table{
 	function init(){
 		parent::init();
 
-		$this->addField('name')->Caption('fees Name');
+		$this->addField('name')->Caption('fees_Name');
 		$this->hasMany('schoolERPApp/Master_Fees','feeshead_id');
-		$this->hasMany('schoolERPApp/Master_Hostel','feeshead_id');
-		$this->addHook('beforeSave',$this);
-		$this->addHook('beforeDelete',$this);
+		// $this->hasMany('schoolERPApp/Master_Hostel','feeshead_id');
         $this->add('dynamic_model/Controller_AutoCreator');
-		
+		$this->addHook('beforeDelete',$this);
 
-		}
-
-      function beforeSave(){
-		$feeshead=$this->add('schoolERPApp/Model_Master_FeesHead');
-		if($this->loaded()){
-			$feeshead->addCondition('id','<>',$this->id);
-		}
-		$feeshead->addCondition('name',$this['name']);
-		$feeshead->tryLoadAny();
-		if($feeshead->loaded()){
-			throw $this->exception('It is Already Exist');
-		}
-	}
-    function beforeDelete(){
-		if($this->ref('schoolERPApp/Master_Fees')->count()->getOne()>0){
-		 throw $this->exception('Please Delete Fees content');
 		
-		if($this->ref('schoolERPApp/Master_Hostel')->count()->getOne()>0)
-		 throw $this->exception('Please Delete Hostel content');
 	}
-}
+	function beforeDelete(){
+		if($this->ref('schoolERPApp/Master_Fees')->count()->getOne()>0)
+		throw $this->exception("Fees Head Can't Delete, It Conatains Fees");    	
+    }
 }

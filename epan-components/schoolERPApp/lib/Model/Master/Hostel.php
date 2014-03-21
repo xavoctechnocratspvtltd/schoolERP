@@ -13,19 +13,21 @@ class Model_Master_Hostel extends \Model_Table{
 		$this->addField('alloted');
 		$this->addField('vacent');
 
-		$this->hasMany('schoolERPApp_Hostel_Room','hostel_id');
+		$this->hasMany('schoolERPApp/Hostel_Room','hostel_id');
+
+ 
 
 		$this->addExpression('Rooms')->set(function ($m,$q){
 			return $m->refSQL('schoolERPApp/Hostel_Room')->count();
 		});
 
-		$this->addExpression('capacity')->set(function ($m,$q){
-			return $m->refSQL('schoolERPApp/Hostel_Room')->sum('capacity');
-		});
+		// $this->addExpression('capacity')->set(function ($m,$q){
+		// 	return $m->refSQL('schoolERPApp/Hostel_Room')->sum('capacity');
+		// });
 
-		$this->addExpression('alloted')->set(function ($m,$q){
-			return $m->refSQL('schoolERPApp/Hostel_Room')->sum('alloted');
-		});
+		// $this->addExpression('alloted')->set(function ($m,$q){
+		// 	return $m->refSQL('schoolERPApp/Hostel_Room')->sum('alloted');
+		// });
 
 		// $this->addExpression('alloted')->set(function ($m,$q){
 		// 	$x= $m->refSQL('HostelRoom')->sum('');
@@ -35,8 +37,9 @@ class Model_Master_Hostel extends \Model_Table{
 		// $this->_dsql()->del('order')->order('Rooms','asc');
 		  $this->addExpression("vacant")->set('building_name');//->display('diff');
 		  $this->addHook('beforeSave',$this);
-		  $this->addHook('beforeDelete',$this);
+		  // $this->addHook('beforeDelete',$this);
 
+		 $this->add('dynamic_model/Controller_AutoCreator');
 	}
 
 	function beforeSave(){
@@ -50,16 +53,16 @@ class Model_Master_Hostel extends \Model_Table{
 
 	}
 
-	function beforeDelete(){
+	// function beforeDelete(){
 
-		$h=$this->add('schoolERPApp/Model_Hostel_Room');
-		$h->addCondition('hostel_id',$this->id);
+	// 	$h=$this->add('schoolERPApp/Model_Hostel_Room');
+	// 	$h->addCondition('hostel_id',$this->id);
 
-		$h->tryLoadAny();
+	// 	$h->tryLoadAny();
 
-		if($h->loaded())
-			throw $this->exception("This Building has Room,cannot Delete ");
-	}
+	// 	if($h->loaded())
+	// 		throw $this->exception("This Building has Room,cannot Delete ");
+	// }
 }
 
 

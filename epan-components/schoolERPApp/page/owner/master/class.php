@@ -9,9 +9,12 @@ class page_schoolERPApp_page_owner_master_class extends page_componentBase_page_
     $class_field->addField('session_name','Session')->type('readonly');
     $crud=$this->add('CRUD');
     $crud->setModel($class);
-    if($crud->grid)
 
+    if($crud->grid){
     $crud->grid->addColumn('expander','student');
+    $crud->grid->addColumn('expander','subjects');
+      
+    }
     
    }
     function page_student(){
@@ -20,6 +23,16 @@ class page_schoolERPApp_page_owner_master_class extends page_componentBase_page_
       $student->addCondition('class_id',$_GET['schoolERPApp_class_id']);
       $grid=$this->add('CRUD',array('allow_add'=>false,'allow_edit'=>false,'allow_del'=>false));
       $grid->setModel($student,array('name','gender','Father_name','phone_number'));
+
+    }
+    function page_subjects(){
+    $this->api->stickyGET('class_id');
+    $subject=$this->add('schoolERPApp/Model_Master_Subject');
+    $subject->load($_GET['class_id']);
+    // $subject->addCondition('class_id',$_GET['schoolERPApp_class_id']);
+    $crud=$this->add('CRUD');
+    $crud->setModel($subject);
+    
 
     }
 }    

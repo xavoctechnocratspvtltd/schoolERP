@@ -9,7 +9,9 @@ class Model_Hostel_Room extends \Model_Table{
 		$this->addField('room_no');
 		$this->addField('capacity');
 		$this->hasMany('schoolERPApp/Hostel_RoomAllotment','room_id');
-	
+	 	$this->add('dynamic_model/Controller_AutoCreator');
+
+ 
 
 		$this->addExpression('vacant')->set('id');//->display('diff');
 		$this->addExpression('alloted')->set(function ($m,$q){
