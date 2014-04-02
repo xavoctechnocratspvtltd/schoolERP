@@ -1,9 +1,7 @@
 <?php
 
-namespace schoolERPApp;
 
 class View_MyMenu extends \Menu_Basic{
-public $items=array();
 	function init(){
 		parent::init();
 		

@@ -13,9 +13,8 @@ class page_schoolERPApp_page_owner_master_class extends page_componentBase_page_
     if($crud->grid){
     $crud->grid->addColumn('expander','student');
     $crud->grid->addColumn('expander','subjects');
-      
+    // $sub=$this->add('Model_Subject');
     }
-    
    }
     function page_student(){
       $this->api->stickyGET('class_id');
@@ -27,15 +26,22 @@ class page_schoolERPApp_page_owner_master_class extends page_componentBase_page_
     }
     function page_subjects(){
     $this->api->stickyGET('class_id');
-    $subject=$this->add('schoolERPApp/Model_Master_Subject');
-    $subject->load($_GET['class_id']);
-    // $subject->addCondition('class_id',$_GET['schoolERPApp_class_id']);
-    $crud=$this->add('CRUD');
-    $crud->setModel($subject);
-    
-
+    // $this->api->stickyGET('subject_id');
+    $class=$this->add('schoolERPApp/Model_Master_Subject');
+    $class->loaded($_GET['schoolERPApp_class_id']);
+    $crud=$this->add('CRUD',array('allow_add'=>false,'allow_edit'=>false,'allow_del'=>false));
+    if($_GET['deactive']){
+    if($crud->grid)
+    $class->load($_GET['deactive']);
+    $class['is_active']=!$class['is_active'];
+    $class->save();
+    $crud->grid->js()->reload()->execute();
+        }
+    if($crud->grid){
+    $crud->grid->addColumn('button','deactive');
+    $crud->setModel($class);
     }
-}    
-  
-
-    
+   
+        
+      }
+    }

@@ -1,12 +1,14 @@
 <?php
 namespace schoolERPApp;
+
 class Model_Hostel_Gaurdian extends \Model_Table{
 	public $table='schoolERPApp_gaurdian';
 	function init(){
 		parent::init();
-
-		// $this->hasOne('schoolERPApp/Hostel_Gaurdian','schoolERPApp_gaurdian_id');
-        $this->addField('std_name')->caption('Hosteler Name');
+		// schoolERPApp_hostel
+		$this->hasOne('schoolERPApp/Master_Hostel','hostel_id');
+		$this->hasOne('schoolERPApp/Hostel_Hostelstudent','student_id');
+        // $this->addField('std_name')->caption('Hosteler Name');
         $this->addField('name')->caption('Gaurdian Name');
         $this->addField('address')->type('text')->caption('Full Address');
         $this->addField('contact_num')->type('number')->caption('Contact Number');
@@ -28,13 +30,6 @@ class Model_Hostel_Gaurdian extends \Model_Table{
 		if($gaurdian->loaded()){
 			throw $this->exception('It is Already Exist');
 		}
-	}
-
-	
-
-	function beforeDelete(){
-	if($this->ref('schoolERPApp/School_Student')->count()->getOne()>0)
-	throw $this->exception('please Delete Student content ');
 	}
 
 }

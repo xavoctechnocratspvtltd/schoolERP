@@ -9,10 +9,7 @@ class Model_Master_Hostel extends \Model_Table{
 		//$this->hasOne('schoolERPApp/Master_FeesHead','schoolERPApp_feeshead_id')->caption('Feeshead name');
 		$this->addField('name')->caption('Hostel Name');
 		$this->addField('block_name');
-		$this->addField('block_cap')->caption('Student capacity');
-		$this->addField('alloted');
-		$this->addField('vacent');
-
+		
 		$this->hasMany('schoolERPApp/Hostel_Room','hostel_id');
 
  
@@ -21,48 +18,24 @@ class Model_Master_Hostel extends \Model_Table{
 			return $m->refSQL('schoolERPApp/Hostel_Room')->count();
 		});
 
-		// $this->addExpression('capacity')->set(function ($m,$q){
-		// 	return $m->refSQL('schoolERPApp/Hostel_Room')->sum('capacity');
-		// });
+		$this->addExpression('Capacity')->set(function ($m,$q){
+			return $m->refSQL('schoolERPApp/Hostel_Room')->count();
+		});
 
-		// $this->addExpression('alloted')->set(function ($m,$q){
-		// 	return $m->refSQL('schoolERPApp/Hostel_Room')->sum('alloted');
-		// });
+		$this->addExpression('Alloted')->set(function ($m,$q){
+			return $m->refSQL('schoolERPApp/Hostel_Room')->count();
+		});
 
-		// $this->addExpression('alloted')->set(function ($m,$q){
-		// 	$x= $m->refSQL('HostelRoom')->sum('');
-		// 	echo $x;
-		// 	return $x;
-		// });
-		// $this->_dsql()->del('order')->order('Rooms','asc');
-		  $this->addExpression("vacant")->set('building_name');//->display('diff');
-		  $this->addHook('beforeSave',$this);
-		  // $this->addHook('beforeDelete',$this);
+         $this->addExpression('Vecent')->set(function ($m,$q){
+			return $m->refSQL('schoolERPApp/Hostel_Room')->count();
+		});
 
-		 $this->add('dynamic_model/Controller_AutoCreator');
+
+		$this->add('dynamic_model/Controller_AutoCreator');
+        
+	
 	}
 
-	function beforeSave(){
-		
-		$this->add('Controller_Unique',array('unique_fields'=>
-                            array(
-                               'name'=>$this['name'],
-                                )
-                            )
-                    );
-
-	}
-
-	// function beforeDelete(){
-
-	// 	$h=$this->add('schoolERPApp/Model_Hostel_Room');
-	// 	$h->addCondition('hostel_id',$this->id);
-
-	// 	$h->tryLoadAny();
-
-	// 	if($h->loaded())
-	// 		throw $this->exception("This Building has Room,cannot Delete ");
-	// }
 }
 
 

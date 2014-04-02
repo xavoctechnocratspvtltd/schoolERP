@@ -7,7 +7,6 @@ class Model_School_Student extends \Model_Table{
 		
 	$this->hasOne('schoolERPApp/Master_Class','class_id')->Caption('Class Name');
 	$this->addField('name');
-	
 	$this->addField('gender')->enum(array('Male','Female'))->display(array('form'=>'Radio'));
 	$this->addField('birth_date')->type('date');
 	$this->addField('Father_name');
@@ -23,8 +22,12 @@ class Model_School_Student extends \Model_Table{
 	
 	$this->addField('admission_date')->type('date');
 	$this->addField('Religion');
-
+	$this->hasOne('schoolERPApp/Master_Hostel','hostel_id');
 	$this->addField('is_hosteler')->type('boolean');
+	
+	$this->addField('admission_fees')->type('int');
+	
+	$this->addField('is_fees')->type('boolean')->caption('Student Fees');
 
 
 	$this->addField('last_class')->type('number');
