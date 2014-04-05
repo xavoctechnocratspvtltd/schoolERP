@@ -11,7 +11,8 @@ class Model_Master_Class extends \Model_Table{
 	$this->hasMany('schoolERPApp/School_Student','class_id');
 	$this->hasMany('schoolERPApp/Master_Subject','class_id');
 	$this->hasMany('schoolERPApp/School_Attendence','class_id');
-	$this->hasMany('schoolERPApp/Master_Section','class_id');
+	$this->hasMany('schoolERPApp/Exam_Exames','class_id');
+	// $this->hasMany('schoolERPApp/Master_Section','class_id');
  
     $this->add('dynamic_model/Controller_AutoCreator');
     $this->addExpression('No_of_Student')->set(function($m,$q){

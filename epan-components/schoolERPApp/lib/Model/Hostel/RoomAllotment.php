@@ -1,4 +1,4 @@
-	<?php
+<?php
 namespace schoolERPApp;
 class Model_Hostel_RoomAllotment extends \Model_Table{
 	public $table='schoolERPApp_roomallotment';
@@ -7,7 +7,8 @@ class Model_Hostel_RoomAllotment extends \Model_Table{
 
 
 		$this->hasOne('schoolERPApp/Master_Hostel','hostel_id')->caption('Hostel Name');
-		// $this->hasOne('schoolERPApp/Hostel_Room','room_id')->caption('Room num');
+		$this->hasOne('schoolERPApp/Hostel_Room','room_id')->caption('Room num');
+		// $this->hasOne('schoolERPApp/Master_Session','session_id')->caption('Room num');
        
 		// $this->hasOne('Student','student_id');
 		$this->add('dynamic_model/Controller_AutoCreator');

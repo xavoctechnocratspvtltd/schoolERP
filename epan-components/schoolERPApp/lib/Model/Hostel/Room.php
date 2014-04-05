@@ -5,15 +5,15 @@ class Model_Hostel_Room extends \Model_Table{
 	function init(){
 		parent::init();
 
-		$this->hasOne('schoolERPApp/Master_Hostel','hostel_id');
+		$this->hasOne('schoolERPApp/Master_Hostel','hostel_id')->type('hiden');
 		$this->addField('room_no');
 		$this->addField('capacity');
-		$this->hasMany('schoolERPApp/Hostel_RoomAllotment','room_id');
+		 $this->hasMany('schoolERPApp/Hostel_RoomAllotment','room_id');
 	 	$this->add('dynamic_model/Controller_AutoCreator');
 
  
 
-		$this->addExpression('vacant')->set('id');//->display('diff');
+		// $this->addExpression('vacant')->set('id');//->display('diff');
 		// $this->addExpression('alloted')->set(function ($m,$q){
 		// 	return $m->refSQL('schoolERPApp/Hostel_RoomAllotement')->count();
 		// });

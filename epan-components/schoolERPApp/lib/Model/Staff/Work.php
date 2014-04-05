@@ -7,6 +7,9 @@ class Model_Staff_Work extends \Model_Table{
 		
 	$this->hasOne('schoolERPApp/Staff_Staff','staff_id');
 	$this->addField('name')->caption('Work Name');
+	$this->addField('start_date')->caption('Work Start');
+	$this->addField('end_date')->caption('Work End');
+	$this->addField('is_active')->caption('Work Its Continue');
 	
 	$this->add('dynamic_model/Controller_AutoCreator');
 	

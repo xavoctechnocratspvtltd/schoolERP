@@ -11,6 +11,7 @@ class Model_Master_Hostel extends \Model_Table{
 		$this->addField('block_name');
 		
 		$this->hasMany('schoolERPApp/Hostel_Room','hostel_id');
+		$this->hasMany('schoolERPApp/Hostel_RoomAllotment','hostel_id');
 
  
 

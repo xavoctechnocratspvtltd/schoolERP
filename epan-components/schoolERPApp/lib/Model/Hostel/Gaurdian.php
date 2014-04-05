@@ -14,7 +14,7 @@ class Model_Hostel_Gaurdian extends \Model_Table{
         $this->addField('contact_num')->type('number')->caption('Contact Number');
 		$this->hasMany('schoolERPApp/School_Student','gaurdian_id');
 		$this->addHook('beforeSave',$this);
-		$this->addHook('beforeDelete',$this);
+		// $this->addHook('beforeDelete',$this);
 		
 
          $this->add('dynamic_model/Controller_AutoCreator');

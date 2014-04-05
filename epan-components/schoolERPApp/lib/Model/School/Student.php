@@ -6,6 +6,7 @@ class Model_School_Student extends \Model_Table{
 		parent::init();
 		
 	$this->hasOne('schoolERPApp/Master_Class','class_id')->Caption('Class Name');
+	// $this->hasOne('schoolERPApp/Master_Session','session_id')->Caption('Class Name');
 	$this->addField('name');
 	$this->addField('gender')->enum(array('Male','Female'))->display(array('form'=>'Radio'));
 	$this->addField('birth_date')->type('date');

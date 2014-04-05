@@ -13,7 +13,10 @@ class Model_Master_Session extends \Model_Table{
 	$this->hasMany('schoolERPApp/Master_Class','session_id');
 	$this->hasMany('schoolERPApp/Master_Schoolar','session_id');
 	$this->hasMany('schoolERPApp/Hostel_RoomAllotement','session_id');
-		
+   	$this->hasMany('schoolERPApp/Master_Subject','session_id');
+	$this->hasMany('schoolERPApp/School_Student','session_id');       
+	$this->hasMany('schoolERPApp/School_Attendance','session_id');             
+    
 	$this->addHook('beforeDelete',$this);
 
 	$this->add('dynamic_model/Controller_AutoCreator');
@@ -38,7 +41,7 @@ class Model_Master_Session extends \Model_Table{
     function create($name, $date, $end_date){
         $new_session=$this->add('schoolERPApp/Model_Master_Session');
         $new_session['name']=$name;
-        $new_session['date']=$start_date;
+        $new_session['date']=$date;
         $new_session['end_date']=$end_date;
         $new_session->save();
         return $new_session->id;

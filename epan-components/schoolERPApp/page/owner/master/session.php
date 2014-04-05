@@ -23,7 +23,7 @@ class page_schoolERPApp_page_owner_master_session extends page_componentBase_pag
 
 		$btn=$grid->addButton('Create New Session');
 		if($btn->isClicked()){
-			$this->js()->univ()->frameURL('New Session Create',$this->api->url('session_createnew'))->execute();
+			$this->js()->univ()->frameURL('New Session Create',$this->api->url('schoolERPApp/page_owner_session_createnew'))->execute();
 		}
 
 		

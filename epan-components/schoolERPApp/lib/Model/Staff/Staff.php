@@ -10,8 +10,6 @@ class Model_Staff_Staff extends \Model_Table{
 	$this->addField('name')->Caption('Staff name');
 	$this->addField('designation');
 	$this->addField('date')->Caption('Date of joining')->type('date')->defaultValue(date('Y-m-d'));
-
-
 	$this->addField('gender')->enum(array('Male','Female'))->display(array('form'=>'Radio'));
 	$this->addField('dob')->type('date');
 	$this->addField('age')->type('number');
