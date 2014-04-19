@@ -32,7 +32,6 @@ class Model_Staff_Staff extends \Model_Table{
 	$this->addField('is_marital_status')->type('boolean');
 	
 
-	$this->hasMany('schoolERPApp/Staff_Work','staff_id');
 	$this->hasMany('schoolERPApp/Staff_StaffAttendence','staff_id');
 	$this->addHook('beforeSave',$this);
 		

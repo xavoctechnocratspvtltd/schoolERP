@@ -13,7 +13,7 @@ class page_schoolERPApp_page_owner_master_hostel extends page_componentBase_page
 		
 	}
 	function page_addroom(){
-		$this->api->stickyGET('hostel_id');
+		$this->api->stickyGET('schoolERPApp_hostel_id');
 		$room=$this->add('schoolERPApp/Model_Hostel_Room');
 		$room->addCondition('hostel_id',$_GET['schoolERPApp_hostel_id']);
 		$crud=$this->add('CRUD');

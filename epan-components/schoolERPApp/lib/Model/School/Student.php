@@ -34,6 +34,8 @@ class Model_School_Student extends \Model_Table{
 	$this->addField('last_class')->type('number');
 	$this->hasMany('schoolERPApp/School_Movement','student_id');		
 	$this->hasMany('schoolERPApp/School_Attendence','student_id');		
+	$this->hasMany('schoolERPApp/Exam_Marks','student_id');
+	// $this->hasMany('schoolERPApp/Exam_Exams','student_id');
 	$this->addExpression('age')->set('date_format(from_days(datediff(now(),birth_date)), "%Y")');
 	$this->addHook('beforeDelete',$this);
 

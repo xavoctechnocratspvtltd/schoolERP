@@ -7,7 +7,6 @@ class Model_Master_CategoryType extends \Model_Table{
 		
 		
 		$this->hasOne('schoolERPApp/Master_Category','category_id');
-		$this->hasOne('schoolERPApp/Master_Subject','subject_id');
 		$this->addField('name');
 		$this->hasMany('schoolERPApp/Master_Item','categorytype_id');
 		$this->hasMany('schoolERPApp/Master_Party','categorytype_id');

@@ -10,25 +10,10 @@ class Model_Master_Subject extends \Model_Table{
 	$this->addField('name')->caption('Subject Name');
 	$this->addField('code');
 	$this->addField('is_active')->type('boolean');		
-    // $this->hasMany('schoolERPApp/Model_SubjectClass','subject_id');
-    // $this->hasMany('schoolERPApp/Model_SubjectClasses','subject_id');
-       
-    // $this->addHook('beforeSave',$this);
-	// $this->addHook('beforeDelete',$this);		
+    $this->hasMany('schoolERPApp/Exam_Marks','subject_id');
     $this->add('dynamic_model/Controller_AutoCreator');
 	}
 
- //    function beforeDelete(){
- //    $s=$this->add('schoolERPApp/Model_SubjectClasses');
- //    $s->addCondition('subject_id',$this->id);
- //    if($s->count()->getOne())
- //    throw $this->exception("This Subject has Associated classes in Any of Session, Cannot delete");
-	// }
-	 
-    // function beforeSave(){
-    //     $this->add('Controller_Unique',array('unique_fields'=>array('name'=>$this['name'])));
-
-    // }
 	
 }
 	

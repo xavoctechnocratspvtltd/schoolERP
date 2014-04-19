@@ -5,7 +5,7 @@ class Model_Hostel_Room extends \Model_Table{
 	function init(){
 		parent::init();
 
-		$this->hasOne('schoolERPApp/Master_Hostel','hostel_id')->type('hiden');
+		$this->hasOne('schoolERPApp/Master_Hostel','hostel_id');
 		$this->addField('room_no');
 		$this->addField('capacity');
 		 $this->hasMany('schoolERPApp/Hostel_RoomAllotment','room_id');
@@ -18,7 +18,7 @@ class Model_Hostel_Room extends \Model_Table{
 		// 	return $m->refSQL('schoolERPApp/Hostel_RoomAllotement')->count();
 		// });
 
-		$this->addExpression('name')->set('room_no');
+		// $this->addExpression('name')->set('room_no');
 
 		// $this->addCondition('session_id',$this->add('Model_Sessions_Current')->tryLoadAny()->get('id'));
 		// $this->_dsql()->order('room_no','asc');

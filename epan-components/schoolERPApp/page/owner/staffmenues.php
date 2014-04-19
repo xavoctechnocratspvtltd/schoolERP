@@ -6,8 +6,6 @@ function init(){
 
     $tab=$this->add('Tabs');
 	$tab->addTabURL('schoolERPApp_page_owner_staff_staff','Staff Info');
-    $tab->addTabURL('schoolERPApp_page_owner_staff_work','Work');
-    $tab->addTabURL('schoolERPApp_page_owner_staff_hostelstaff','Staff Movement');
-    $tab->addTabURL('schoolERPApp_page_owner_exam_exams','Exam');
+    $tab->addTabURL('schoolERPApp_page_owner_staff_staffattendence','Staff Movement');
 }
 }
